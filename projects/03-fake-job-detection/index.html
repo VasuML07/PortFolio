@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Job Detection | Avinash Margana</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Case Study Specific Styles */
+        .case-study-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+        }
+        
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: rgba(88, 166, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(88, 166, 255, 0.1);
+        }
+
+        .feature-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: monospace;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        ul.feature-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        ul.feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        ul.feature-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .live-badge {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    
+    <header>
+        <nav>
+            <div class="logo"><a href="../../index.html" style="text-decoration:none; color:inherit;">Avinash Margana</a></div>
+            <ul>
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#projects">Projects</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a href="../../index.html#projects" class="back-link">← Back to Portfolio</a>
+        
+        <section class="case-study-header">
+            <h1>Fake Job Detection System <span class="live-badge">● LIVE</span></h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">
+                NLP-powered application that detects fraudulent job postings in real-time using TF-IDF vectorization and Logistic Regression. Deployed on Streamlit Community Cloud for public access.
+            </p>
+            <div class="case-study-meta">
+                <span><strong>Role:</strong> Solo Developer</span>
+                <span><strong>Timeline:</strong> Nov 2025 - Jan 2026</span>
+                <span><strong>Type:</strong> End-to-End ML Application</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Challenge</h2>
+            <p>Recruitment fraud has become increasingly common across online job portals, putting job seekers at risk of financial loss and identity theft. The challenge was to build an automated system capable of distinguishing between legitimate and fraudulent job advertisements based solely on their textual content with high accuracy and real-time performance.</p>
+        </section>
+
+        <section>
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📝 Text Classification</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Binary classification of job postings as legitimate or fraudulent using supervised learning.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ Real-Time Inference</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Instant predictions through an interactive Streamlit interface accessible from any browser.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🧠 NLP Pipeline</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">TF-IDF feature extraction with text preprocessing, tokenization, and cleaning.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🌐 Live Deployment</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Production-ready deployment on Streamlit Community Cloud with zero infrastructure management.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Implementation</h2>
+            <p>Built a complete end-to-end ML pipeline from raw text data to deployed web application.</p>
+            
+            <ul class="feature-list" style="margin-top: 1.5rem;">
+                <li><strong>Data Preprocessing:</strong> Lowercasing, special character removal, stopword filtering, and lemmatization.</li>
+                <li><strong>Feature Engineering:</strong> TF-IDF vectorization to convert unstructured text into numerical features.</li>
+                <li><strong>Model Training:</strong> Logistic Regression classifier optimized for binary classification with cross-validation.</li>
+                <li><strong>Evaluation:</strong> Comprehensive metrics including accuracy, precision, recall, and F1-score on held-out test data.</li>
+                <li><strong>Serialization:</strong> Model and vectorizer saved as Pickle files for efficient inference without retraining.</li>
+                <li><strong>Web Interface:</strong> Streamlit app with input validation, prediction display, and confidence indicators.</li>
+            </ul>
+            
+            <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Technologies Used</h3>
+            <div class="tech-list">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">TF-IDF</span>
+                <span class="tech-tag">Logistic Regression</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Pickle</span>
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">Text Classification</span>
+            </div>
+        </section>
+
+        <section style="margin-top: 4rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://fakeprediction-a8wpvpp3uifhwxeduehaev.streamlit.app/" target="_blank" class="btn">Try Live Demo</a>
+            <a href="https://github.com/VasuML07/fakeprediction" target="_blank" class="btn" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-primary);">View Source Code</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Avinash Margana. Built with HTML & CSS.</p>
+    </footer>
+</body>
+</html>
