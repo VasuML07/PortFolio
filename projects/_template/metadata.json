@@ -1,0 +1,27 @@
+{
+  "title": "Project Title",
+  "slug": "project-slug",
+  "role": "Your Role",
+  "timeline": "Start Date - End Date",
+  "team_size": "Solo",
+  "client": "Personal Project",
+  "challenge": "Brief description of the problem",
+  "solution": "Brief description of your approach",
+  "technologies": {
+    "languages": ["Python"],
+    "libraries": ["NumPy"],
+    "tools": ["Git"]
+  },
+  "results": [
+    "Result 1",
+    "Result 2"
+  ],
+  "links": {
+    "live_demo": "",
+    "github_repo": ""
+  },
+  "learnings": [
+    "Learning point 1",
+    "Learning point 2"
+  ]
+}
