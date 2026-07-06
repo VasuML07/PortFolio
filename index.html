@@ -4,515 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avinash Margana | AI Engineer</title>
+    <link rel="stylesheet" href="styles.css">
     <meta name="description" content="Portfolio of Avinash Margana, an AI Engineer specializing in Machine Learning, NLP, and Deep Learning.">
-    <style>
-        :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --accent-color: #58a6ff;
-            --accent-glow: rgba(88, 166, 255, 0.15);
-            --border-color: #30363d;
-            --gradient-1: #1f6feb;
-            --gradient-2: #8957e5;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Animated Background */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 15% 50%, rgba(31, 111, 235, 0.08), transparent 25%),
-                        radial-gradient(circle at 85% 30%, rgba(137, 87, 229, 0.08), transparent 25%);
-            animation: pulseBg 10s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulseBg {
-            0% { opacity: 0.5; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.1); }
-        }
-
-        /* Navigation */
-        header {
-            position: sticky;
-            top: 0;
-            background-color: rgba(13, 17, 23, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, var(--accent-color), var(--gradient-2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Main Layout */
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        section {
-            margin-bottom: 6rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Hero Section */
-        #hero {
-            text-align: center;
-            padding: 6rem 0 4rem;
-            animation-delay: 0.1s;
-        }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-            background: linear-gradient(to right, #ffffff, var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        #hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--accent-color);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent-color);
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        /* About Section */
-        #about {
-            background-color: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            animation-delay: 0.2s;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 40%;
-            height: 3px;
-            bottom: -8px;
-            left: 0;
-            background: linear-gradient(to right, var(--accent-color), transparent);
-            border-radius: 2px;
-        }
-
-        /* Projects Grid */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            animation-delay: 0.3s;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .project-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Skills Section */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            animation-delay: 0.4s;
-        }
-
-        .skill-badge {
-            background-color: rgba(88, 166, 255, 0.1);
-            color: var(--accent-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid rgba(88, 166, 255, 0.2);
-            transition: all 0.2s ease;
-            cursor: default;
-        }
-
-        .skill-badge:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        /* Contact Section */
-        #contact {
-            text-align: center;
-            animation-delay: 0.5s;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
+    <!-- Animated Background Mesh -->
+    <div class="bg-mesh"></div>
     
-    <header>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <header class="glass-header">
         <nav>
             <div class="logo">Avinash Margana</div>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <h1>AI Engineer</h1>
-            <p>Building scalable web applications with integration of AI</p>
+        <section id="hero" class="reveal-section">
+            <h1 class="gradient-text">AI Engineer</h1>
+            <p class="hero-subtitle">Building scalable web applications with integration of AI</p>
             <div class="links">
-                <a href="https://github.com/VasuML07" target="_blank" class="btn">GitHub</a>
-                <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" class="btn">LinkedIn</a>
-                <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="btn">LeetCode</a>
-                <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" class="btn">Resume</a>
+                <a href="https://github.com/VasuML07" target="_blank" class="btn btn-primary">GitHub</a>
+                <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="btn btn-secondary">LeetCode</a>
+                <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" class="btn btn-accent">Resume</a>
             </div>
         </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am a third-year Computer Science student specializing in Artificial Intelligence and Machine Learning at VIT-AP University. With a strong foundation in Python, Java, and C++, I focus on developing end-to-end AI solutions, from predictive analytics models to NLP-powered web applications. I am passionate about leveraging data to solve real-world problems and building efficient, scalable systems.</p>
+        <section id="about" class="reveal-section" data-delay="100">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-card glass-card">
+                <p>I am a third-year Computer Science student specializing in Artificial Intelligence and Machine Learning at VIT-AP University. With a strong foundation in Python, Java, and C++, I focus on developing end-to-end AI solutions, from predictive analytics models to NLP-powered web applications.</p>
+            </div>
         </section>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
+        <section id="projects" class="reveal-section" data-delay="200">
+            <h2 class="section-title">Featured Projects</h2>
             <div class="project-grid">
-                <div class="project-card">
-                    <h3>StatVault AI</h3>
-                    <p>Football analytics platform with ML subsystem for match prediction and player profiling using XGBoost and K-Means.</p>
-                    <a href="projects/01-statvault-ai/" class="project-link">View Case Study →</a>
+                <article class="project-card glass-card reveal-item">
+                    <div class="project-content">
+                        <h3>StatVault AI</h3>
+                        <p>Football analytics platform with ML subsystem for match prediction and player profiling using XGBoost and K-Means.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">XGBoost</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                        </div>
+                        <a href="projects/01-statvault-ai/" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card reveal-item">
+                    <div class="project-content">
+                        <h3>Neural Network From Scratch</h3>
+                        <p>Fully connected neural network implemented using only NumPy, demonstrating forward/backward propagation from first principles.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Linear Algebra</span>
+                        </div>
+                        <a href="projects/02-neural-network-scratch/" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card reveal-item">
+                    <div class="project-content">
+                        <h3>Fake Job Detection</h3>
+                        <p>NLP-based application to classify fraudulent job postings with real-time Streamlit interface using TF-IDF and Logistic Regression.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">TF-IDF</span>
+                        </div>
+                        <a href="projects/03-fake-job-detection/" class="project-link">View Case Study →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills" class="reveal-section" data-delay="300">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category glass-card reveal-item">
+                    <h3 class="category-title">Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Neural Network From Scratch</h3>
-                    <p>Fully connected neural network implemented using only NumPy, demonstrating forward/backward propagation from first principles.</p>
-                    <a href="projects/02-neural-network-scratch/" class="project-link">View Case Study →</a>
+                <div class="skill-category glass-card reveal-item">
+                    <h3 class="category-title">ML & AI Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">TensorFlow</span>
+                        <span class="skill-tag highlight">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Fake Job Detection</h3>
-                    <p>NLP-based application to classify fraudulent job postings with real-time Streamlit interface using TF-IDF and Logistic Regression.</p>
-                    <a href="projects/03-fake-job-detection/" class="project-link">View Case Study →</a>
+                <div class="skill-category glass-card reveal-item">
+                    <h3 class="category-title">Core Specializations</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag accent">Deep Learning</span>
+                        <span class="skill-tag accent">NLP</span>
+                        <span class="skill-tag accent">Computer Vision</span>
+                        <span class="skill-tag accent">Machine Learning</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card reveal-item">
+                    <h3 class="category-title">Tools & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">OpenCV</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-    <div class="section-header">
-        <h2>Technical Expertise</h2>
-        <p>A curated stack of languages, frameworks, and tools used to build scalable AI solutions.</p>
-    </div>
-
-    <div class="skills-grid">
-        <!-- Category 1: Programming Languages -->
-        <div class="skill-category-card">
-            <h3 class="category-title">Programming Languages</h3>
-            <div class="badge-container">
-                <span class="skill-badge">Python</span>
-                <span class="skill-badge">Java</span>
-                <span class="skill-badge">C++</span>
-                <span class="skill-badge">JavaScript</span>
-                <span class="skill-badge">SQL</span>
+        <section id="contact" class="reveal-section" data-delay="400">
+            <div class="contact-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p>I'm currently open to new opportunities in AI/ML Engineering. Reach out through any channel below.</p>
             </div>
-        </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card glass-card reveal-item">
+                    <div class="card-icon">✉️</div>
+                    <h3>Email Me</h3>
+                    <a href="mailto:marganaavinash@gmail.com" class="contact-link">marganaavinash@gmail.com</a>
+                    <span class="sub-text">Usually responds within 24 hours</span>
+                </div>
 
-        <!-- Category 2: ML & AI Frameworks -->
-        <div class="skill-category-card">
-            <h3 class="category-title">ML & AI Frameworks</h3>
-            <div class="badge-container">
-                <span class="skill-badge highlight">TensorFlow</span>
-                <span class="skill-badge highlight">PyTorch</span>
-                <span class="skill-badge">Scikit-learn</span>
-                <span class="skill-badge">NumPy</span>
-                <span class="skill-badge">Pandas</span>
+                <div class="contact-card glass-card reveal-item">
+                    <div class="card-icon">📞</div>
+                    <h3>Call / WhatsApp</h3>
+                    <a href="tel:+919392989981" class="contact-link">+91 9392989981</a>
+                    <span class="sub-text">Available Mon-Fri, 10AM - 6PM IST</span>
+                </div>
+
+                <div class="contact-card glass-card reveal-item">
+                    <div class="card-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" class="contact-link">Connect Professionally</a>
+                </div>
+
+                <div class="contact-card glass-card reveal-item">
+                    <div class="card-icon"></div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/VasuML07" target="_blank" class="contact-link">View My Code</a>
+                </div>
+
+                <div class="contact-card glass-card reveal-item">
+                    <div class="card-icon">⚡</div>
+                    <h3>LeetCode</h3>
+                    <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="contact-link">Algorithmic Profile</a>
+                </div>
+
+                <div class="contact-card glass-card reveal-item">
+                    <div class="card-icon"></div>
+                    <h3>Location</h3>
+                    <p class="contact-text">Vijayawada, India</p>
+                    <span class="status-badge"><span class="pulse"></span> Open to Remote</span>
+                </div>
+
+                <div class="contact-card glass-card cta reveal-item">
+                    <div class="card-icon">📄</div>
+                    <h3>Download Resume</h3>
+                    <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" class="btn btn-full">Get PDF Version</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Category 3: Core Specializations -->
-        <div class="skill-category-card">
-            <h3 class="category-title">Core Specializations</h3>
-            <div class="badge-container">
-                <span class="skill-badge accent">Deep Learning</span>
-                <span class="skill-badge accent">NLP</span>
-                <span class="skill-badge accent">Computer Vision</span>
-                <span class="skill-badge accent">Machine Learning</span>
-            </div>
-        </div>
-
-        <!-- Category 4: Tools & DevOps -->
-        <div class="skill-category-card">
-            <h3 class="category-title">Tools & DevOps</h3>
-            <div class="badge-container">
-                <span class="skill-badge">Git</span>
-                <span class="skill-badge">Docker</span>
-                <span class="skill-badge">Linux</span>
-                <span class="skill-badge">Streamlit</span>
-                <span class="skill-badge">OpenCV</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-        <section id="contact">
-    <div class="contact-header">
-        <h2>Let's Connect</h2>
-        <p>I'm currently open to new opportunities in AI/ML Engineering. Reach out through any channel below.</p>
-    </div>
-    
-    <div class="contact-grid">
-        
-        <!-- Category 1: Direct Communication -->
-        <div class="contact-card primary">
-            <div class="card-icon">️</div>
-            <h3>Email Me</h3>
-            <a href="mailto:marganaavinash@gmail.com" class="contact-link">marganaavinash@gmail.com</a>
-            <span class="sub-text">Usually responds within 24 hours</span>
-        </div>
-
-        <div class="contact-card primary">
-            <div class="card-icon">📞</div>
-            <h3>Call / WhatsApp</h3>
-            <a href="tel:+919392989981" class="contact-link">+91 9392989981</a>
-        </div>
-
-        <!-- Category 2: Professional Links -->
-        <div class="contact-card social">
-            <div class="card-icon"></div>
-            <h3>LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" class="contact-link">Connect Professionally</a>
-        </div>
-
-        <div class="contact-card social">
-            <div class="card-icon">💻</div>
-            <h3>GitHub</h3>
-            <a href="https://github.com/VasuML07" target="_blank" class="contact-link">View My Code</a>
-        </div>
-
-        <div class="contact-card social">
-            <div class="card-icon">⚡</div>
-            <h3>LeetCode</h3>
-            <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="contact-link">Algorithmic Profile</a>
-        </div>
-
-        <!-- Category 3: Location & Status -->
-        <div class="contact-card info">
-            <div class="card-icon"></div>
-            <h3>Location</h3>
-            <p class="contact-text">Vijayawada, India</p>
-            <span class="status-badge"><span class="pulse"></span> Open to Remote</span>
-        </div>
-
-        <!-- Category 4: Resume CTA -->
-        <div class="contact-card cta">
-            <div class="card-icon">📄</div>
-            <h3>Download Resume</h3>
-            <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" class="btn btn-full">Get PDF Version</a>
-        </div>
-
-    </div>
-</section>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Avinash Margana. Built with HTML & CSS.</p>
     </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-section, .reveal-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        });
+    </script>
 </body>
 </html>
