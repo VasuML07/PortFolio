@@ -12,8 +12,10 @@
     get: (key) => {
       const raw = localStorage.getItem(key);
       if (!raw) return null;
-      const { data, ts } = JSON.parse(raw);
-      if (Date.now() - ts < 30 * 60 * 1000) return data; // 30 mins
+      try {
+        const { data, ts } = JSON.parse(raw);
+        if (Date.now() - ts < 30 * 60 * 1000) return data; // 30 mins
+      } catch (e) { /* ignore parse errors */ }
       return null;
     },
     set: (key, data) => localStorage.setItem(key, JSON.stringify({ data, ts: Date.now() }))
@@ -336,7 +338,7 @@
       Cache.set('gh_data', data);
       renderGitHub(data, dash);
     } catch (e) {
-      dash.innerHTML = `<div class="dash-card glass-card" style="grid-column: 1/-1; text-align:center; color:var(--text-3);">GitHub data temporarily unavailable. Please check back later.</div>`;
+      dash.innerHTML = `<div class="dash-card glass-card" style="grid-column: 1/-1; text-align:center; color:var(--text-3); padding: 3rem;">GitHub data temporarily unavailable. Please check back later.</div>`;
     }
   };
 
@@ -344,7 +346,7 @@
     dash.innerHTML = `
       <div class="dash-card glass-card">
         <div class="dash-head">
-          <img src="${data.avatar}" alt="GitHub Avatar">
+          <img src="${data.avatar}" alt="GitHub Avatar" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--accent);">
           <div>
             <h3>${data.name}</h3>
             <span>${data.bio}</span>
@@ -370,51 +372,59 @@
   };
 
   // =========================================
-  // API: LEETCODE
+  // API: LEETCODE (CORS-RESILIENT)
   // =========================================
   const fetchLeetCode = async () => {
     const dash = $('#leetcode-dashboard');
     const cached = Cache.get('lc_data');
     if (cached) return renderLeetCode(cached, dash);
 
-    try {
-      // LeetCode GraphQL often blocks CORS from non-LeetCode domains. 
-      // We attempt it, and gracefully fallback if it fails.
-      const res = await fetch('https://leetcode.com/graphql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          query: `query getUserProfile($username: String!) {
-            matchedUser(username: $username) {
-              submitStats: submitStatsGlobal { acSubmissionNum { difficulty count } }
-            }
-            userContestRanking(username: $username) { rating attendedContestsCount }
-          }`,
-          variables: { username: 'coder_2028' }
-        })
-      });
-      
-      if (!res.ok) throw new Error('GraphQL failed');
-      const json = await res.json();
-      const user = json.data?.matchedUser;
-      const contest = json.data?.userContestRanking;
-      
-      if (!user) throw new Error('No user data');
-      
-      const stats = user.submitStats.acSubmissionNum;
-      const data = {
-        total: stats.find(s => s.difficulty === 'All')?.count || 0,
-        easy: stats.find(s => s.difficulty === 'Easy')?.count || 0,
-        medium: stats.find(s => s.difficulty === 'Medium')?.count || 0,
-        hard: stats.find(s => s.difficulty === 'Hard')?.count || 0,
-        rating: contest ? Math.round(contest.rating) : 'N/A',
-        contests: contest ? contest.attendedContestsCount : 'N/A'
-      };
-      
+    // Public APIs to bypass LeetCode's strict CORS policy
+    const endpoints = [
+      'https://alfa-leetcode-api.onrender.com/coder_2028',
+      'https://leetcode-stats-api.herokuapp.com/coder_2028',
+      'https://leetcode-api-faisalshohag.vercel.app/coder_2028'
+    ];
+
+    let data = null;
+
+    for (const url of endpoints) {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) continue;
+        const json = await res.json();
+        
+        // Normalize response structures from different wrappers
+        const total = json.totalSolved || json.solvedProblem || 0;
+        if (total > 0 || json.easySolved !== undefined) {
+          data = {
+            total: total,
+            easy: json.easySolved || 0,
+            medium: json.mediumSolved || 0,
+            hard: json.hardSolved || 0,
+            rating: json.contestRating || json.rating || 'N/A',
+            contests: json.contestAttend || json.attendedContestsCount || 'N/A',
+            ranking: json.ranking || 'N/A'
+          };
+          break; // Success, exit loop
+        }
+      } catch (e) {
+        continue; // Try next endpoint
+      }
+    }
+
+    if (data) {
       Cache.set('lc_data', data);
       renderLeetCode(data, dash);
-    } catch (e) {
-      dash.innerHTML = `<div class="dash-card glass-card" style="grid-column: 1/-1; text-align:center; color:var(--text-3);">Unable to fetch latest LeetCode data.</div>`;
+    } else {
+      dash.innerHTML = `
+        <div class="dash-card glass-card" style="grid-column: 1/-1; text-align:center; color:var(--text-3); padding: 3rem;">
+          <p style="margin-bottom: 1rem;">Unable to fetch latest LeetCode data due to API restrictions.</p>
+          <a href="https://leetcode.com/u/coder_2028/" target="_blank" rel="noopener" class="btn btn-ghost" style="display: inline-flex;">
+            View LeetCode Profile →
+          </a>
+        </div>
+      `;
     }
   };
 
@@ -430,15 +440,15 @@
         </div>
         <div class="dash-stats">
           <div class="dash-stat"><span class="dash-val">${data.total}</span><span class="dash-label">Total Solved</span></div>
-          <div class="dash-stat"><span class="dash-val">${data.rating}</span><span class="dash-label">Contest Rating</span></div>
+          <div class="dash-stat"><span class="dash-val">${data.ranking}</span><span class="dash-label">Global Ranking</span></div>
         </div>
       </div>
       <div class="dash-card glass-card">
         <h3 style="font-family:var(--font-h); margin-bottom:1rem; font-size:1.1rem;">Difficulty Breakdown</h3>
         <div style="display:flex;flex-direction:column;gap:.8rem;">
-          <div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem;"><span>Easy</span><span>${data.easy}</span></div><div style="height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;"><div style="height:100%;width:${data.total ? (data.easy/data.total)*100 : 0}%;background:#10b981;border-radius:3px;"></div></div></div>
-          <div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem;"><span>Medium</span><span>${data.medium}</span></div><div style="height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;"><div style="height:100%;width:${data.total ? (data.medium/data.total)*100 : 0}%;background:#f59e0b;border-radius:3px;"></div></div></div>
-          <div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem;"><span>Hard</span><span>${data.hard}</span></div><div style="height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;"><div style="height:100%;width:${data.total ? (data.hard/data.total)*100 : 0}%;background:#ef4444;border-radius:3px;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem;"><span>Easy</span><span>${data.easy}</span></div><div style="height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;"><div style="height:100%;width:${data.total ? (data.easy/data.total)*100 : 0}%;background:#10b981;border-radius:3px;transition:width 1.5s var(--ease);"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem;"><span>Medium</span><span>${data.medium}</span></div><div style="height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;"><div style="height:100%;width:${data.total ? (data.medium/data.total)*100 : 0}%;background:#f59e0b;border-radius:3px;transition:width 1.5s var(--ease);"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem;"><span>Hard</span><span>${data.hard}</span></div><div style="height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;"><div style="height:100%;width:${data.total ? (data.hard/data.total)*100 : 0}%;background:#ef4444;border-radius:3px;transition:width 1.5s var(--ease);"></div></div></div>
         </div>
       </div>
       <div class="dash-card glass-card">
