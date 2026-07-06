@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network From Scratch | Avinash Margana</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Case Study Specific Styles */
+        .case-study-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+        }
+        
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-card {
+            background: rgba(88, 166, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(88, 166, 255, 0.1);
+        }
+
+        .highlight-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: monospace;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        ul.feature-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        ul.feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        ul.feature-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    
+    <header>
+        <nav>
+            <div class="logo"><a href="../../index.html" style="text-decoration:none; color:inherit;">Avinash Margana</a></div>
+            <ul>
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#projects">Projects</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a href="../../index.html#projects" class="back-link">← Back to Portfolio</a>
+        
+        <section class="case-study-header">
+            <h1>Neural Network From Scratch</h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">
+                Building Deep Learning One Matrix Multiplication at a Time using only NumPy. No frameworks, no abstractions—just pure mathematics and backpropagation.
+            </p>
+            <div class="case-study-meta">
+                <span><strong>Role:</strong> Solo Developer</span>
+                <span><strong>Timeline:</strong> March 2026 - April 2026</span>
+                <span><strong>Type:</strong> Educational / Research</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Challenge</h2>
+            <p>Modern deep learning libraries like TensorFlow and PyTorch abstract away the underlying mathematics, making it difficult for learners to understand how neural networks actually "learn." The challenge was to rebuild a fully connected neural network from first principles to expose every computational step without relying on high-level APIs.</p>
+        </section>
+
+        <section>
+            <h2>Key Highlights</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <h4> Mathematical Foundation</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Manual implementation of matrix multiplication, chain rule, gradient calculation, and numerical stability checks.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>⚙️ Modular Architecture</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Reusable Dense layers, Activation functions (ReLU, Softmax), and configurable model structures.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>🚀 Adam Optimizer</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">From-scratch implementation of adaptive moment estimation for efficient parameter updates.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>💾 Model Persistence</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Custom serialization pipeline using Pickle to save and reload trained weights.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Implementation</h2>
+            <p>Built a complete training engine that handles forward propagation, loss computation, backpropagation, and weight updates manually.</p>
+            
+            <ul class="feature-list" style="margin-top: 1.5rem;">
+                <li><strong>Forward Propagation:</strong> Layer-by-layer matrix transformations with bias handling.</li>
+                <li><strong>Backpropagation:</strong> Explicit gradient computation using the chain rule for all parameters.</li>
+                <li><strong>Activation Functions:</strong> Implemented ReLU, Sigmoid, Softmax, and Identity with their derivatives.</li>
+                <li><strong>Loss Computation:</strong> Cross-entropy loss for multi-class classification tasks.</li>
+                <li><strong>Experiment Runner:</strong> Configurable training loops with validation tracking and best-model selection.</li>
+            </ul>
+            
+            <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;">Technologies Used</h3>
+            <div class="tech-list">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Linear Algebra</span>
+                <span class="tech-tag">Pickle</span>
+                <span class="tech-tag">Backpropagation</span>
+                <span class="tech-tag">Adam Optimizer</span>
+                <span class="tech-tag">Cross-Entropy Loss</span>
+            </div>
+        </section>
+
+        <section style="margin-top: 4rem; text-align: center;">
+            <a href="https://github.com/VasuML07/NeuralNetworkfromscratch" target="_blank" class="btn">View Source Code on GitHub</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Avinash Margana. Built with HTML & CSS.</p>
+    </footer>
+</body>
+</html>
