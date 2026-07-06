@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatVault AI | Avinash Margana</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Specific styles for case study pages */
+        .case-study-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+        }
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .metric-card {
+            background: rgba(88, 166, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(88, 166, 255, 0.1);
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    
+    <header>
+        <nav>
+            <div class="logo"><a href="../../index.html" style="text-decoration:none; color:inherit;">Avinash Margana</a></div>
+            <ul>
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#projects">Projects</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a href="../../index.html#projects" class="back-link">← Back to Portfolio</a>
+        
+        <section class="case-study-header">
+            <h1>StatVault AI</h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">
+                Production-ready Machine Learning subsystem powering football intelligence with predictive analytics and player profiling.
+            </p>
+            <div class="case-study-meta">
+                <span><strong>Role:</strong> AI & ML Developer</span>
+                <span><strong>Timeline:</strong> June 2026 - July 2026</span>
+                <span><strong>Team:</strong> StatVault Platform</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Challenge</h2>
+            <p>Football analytics requires processing massive datasets to extract meaningful insights. The challenge was to build a scalable ML subsystem capable of handling over 5 million player statistics and 245,000+ match records to provide accurate predictions and actionable player archetypes.</p>
+        </section>
+
+        <section>
+            <h2>The Solution</h2>
+            <p>Developed a comprehensive machine learning pipeline featuring an XGBoost model for match outcome prediction and unsupervised learning techniques for player profiling. Engineered complex features from raw data including historical form, ELO ratings, and expected goals (xG).</p>
+            
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <span class="metric-value">67.7%</span>
+                    <span>Accuracy</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">0.811</span>
+                    <span>ROC-AUC Score</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">5M+</span>
+                    <span>Player Statistics Processed</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">6</span>
+                    <span>Player Archetypes Identified</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Implementation</h2>
+            <p>Built an end-to-end ML pipeline including data cleaning, feature engineering, model training, and evaluation.</p>
+            <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-secondary);">
+                <li><strong>Match Prediction:</strong> XGBoost classifier optimized for multi-class outcomes.</li>
+                <li><strong>Player Profiling:</strong> K-Means clustering to identify roles like Poacher, Playmaker, Winger.</li>
+                <li><strong>Anomaly Detection:</strong> Isolation Forest to flag unusual performance metrics.</li>
+                <li><strong>Feature Engineering:</strong> Created rolling averages, ELO differences, and xG metrics.</li>
+            </ul>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Technologies Used</h3>
+            <div class="tech-list">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">K-Means</span>
+                <span class="tech-tag">Isolation Forest</span>
+            </div>
+        </section>
+
+        <section style="margin-top: 4rem; text-align: center;">
+            <a href="https://github.com/sai-ganesh-4539/StatVault/tree/feature/statvault-ml-updates" target="_blank" class="btn">View Source Code on GitHub</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Avinash Margana. Built with HTML & CSS.</p>
+    </footer>
+</body>
+</html>
