@@ -1,0 +1,29 @@
+{
+  "title": "Fake Job Detection System",
+  "slug": "03-fake-job-detection",
+  "role": "Solo Developer",
+  "timeline": "Nov 2025 - Jan 2026",
+  "team_size": "Solo",
+  "client": "Personal Project",
+  "challenge": "Recruitment fraud is increasingly common on online job portals, putting job seekers at risk of financial and identity theft.",
+  "solution": "Built an NLP-based application using TF-IDF vectorization and Logistic Regression to classify fraudulent job postings, deployed via Streamlit.",
+  "technologies": {
+    "languages": ["Python"],
+    "libraries": ["Scikit-learn", "Pandas", "NumPy"],
+    "tools": ["Streamlit", "Git"]
+  },
+  "results": [
+    "Achieved real-time inference through a user-friendly Streamlit interface",
+    "Evaluated model performance using accuracy, precision, recall, and F1-score",
+    "Deployed live on Streamlit Community Cloud for public access"
+  ],
+  "links": {
+    "live_demo": "https://fakeprediction-a8wpvpp3uifhwxeduehaev.streamlit.app/",
+    "github_repo": "https://github.com/VasuML07/fakeprediction"
+  },
+  "learnings": [
+    "Building end-to-end NLP pipelines from text cleaning to model deployment",
+    "Optimizing TF-IDF features for binary classification in the recruitment domain",
+    "Deploying machine learning models as interactive web applications using Streamlit"
+  ]
+}
