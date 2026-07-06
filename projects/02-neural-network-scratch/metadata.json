@@ -1,0 +1,29 @@
+{
+  "title": "Neural Network From Scratch",
+  "slug": "02-neural-network-scratch",
+  "role": "Solo Developer",
+  "timeline": "March 2026 - April 2026",
+  "team_size": "Solo",
+  "client": "Personal Project",
+  "challenge": "Modern deep learning libraries abstract away the mathematics, making it difficult to understand how neural networks actually learn.",
+  "solution": "Implemented a complete feed-forward neural network using only NumPy, manually coding forward propagation, backpropagation, and the Adam optimizer.",
+  "technologies": {
+    "languages": ["Python"],
+    "libraries": ["NumPy"],
+    "tools": ["Git", "Pickle"]
+  },
+  "results": [
+    "Created a transparent codebase demystifying deep learning mechanics",
+    "Achieved stable convergence on multi-class classification tasks",
+    "Implemented modular architecture with reusable layers and activation functions"
+  ],
+  "links": {
+    "live_demo": "",
+    "github_repo": "https://github.com/VasuML07/NeuralNetworkfromscratch"
+  },
+  "learnings": [
+    "Mathematical foundations of deep learning including matrix multiplication and the chain rule",
+    "Implementation of optimization algorithms like Adam from scratch",
+    "Structuring machine learning code for modularity without framework dependencies"
+  ]
+}
