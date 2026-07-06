@@ -1,0 +1,29 @@
+{
+  "title": "StatVault AI",
+  "slug": "01-statvault-ai",
+  "role": "AI & ML Developer",
+  "timeline": "June 2026 - July 2026",
+  "team_size": "Team Contribution",
+  "client": "StatVault Platform",
+  "challenge": "Processing massive football datasets to extract meaningful insights for match prediction and player evaluation.",
+  "solution": "Developed a comprehensive ML pipeline featuring XGBoost for match outcomes and K-Means for player profiling.",
+  "technologies": {
+    "languages": ["Python"],
+    "libraries": ["Scikit-learn", "XGBoost", "NumPy", "Pandas"],
+    "tools": ["Git", "Jupyter Notebook"]
+  },
+  "results": [
+    "Achieved 67.7% Accuracy and 0.811 ROC-AUC for match prediction",
+    "Clustered players into 6 distinct archetypes using K-Means",
+    "Engineered features from 5.2M+ player statistics"
+  ],
+  "links": {
+    "live_demo": "",
+    "github_repo": "https://github.com/sai-ganesh-4539/StatVault/tree/feature/statvault-ml-updates"
+  },
+  "learnings": [
+    "Advanced feature engineering for time-series sports data",
+    "Optimizing XGBoost hyperparameters for multi-class classification",
+    "Applying unsupervised learning for real-world user segmentation"
+  ]
+}
