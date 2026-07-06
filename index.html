@@ -3,288 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Avinash Margana - AI Engineer building intelligent systems for the next generation.">
-    <title>Avinash Margana | AI Engineer</title>
+    <title>Avinash Margana | AI/ML Engineer</title>
+    <meta name="description" content="Avinash Margana - AI/ML Engineer specializing in predictive analytics, NLP, and deep learning. Building intelligent systems for the next generation.">
+    <meta name="keywords" content="AI Engineer, ML Engineer, Deep Learning, NLP, Python, PyTorch, Portfolio">
+    <meta name="author" content="Avinash Margana">
     
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Avinash Margana | AI/ML Engineer">
+    <meta property="og:description" content="Building Intelligent Systems for the next generation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://avinashmargana.dev">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Avinash Margana | AI/ML Engineer">
+    <meta name="twitter:description" content="Building Intelligent Systems for the next generation.">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Avinash Margana",
+        "url": "https://avinashmargana.dev",
+        "jobTitle": "AI/ML Engineer",
+        "alumniOf": "VIT-AP University",
+        "sameAs": [
+            "https://www.linkedin.com/in/vasu-margana-49265031b/",
+            "https://github.com/VasuML07",
+            "https://leetcode.com/u/coder_2028/"
+        ]
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- External Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
 </head>
 <body class="loading">
 
-    <!-- Premium Loader -->
-    <div class="loader">
+    <!-- Loader -->
+    <div id="loader" class="loader" role="status" aria-label="Loading">
         <div class="loader-content">
             <div class="loader-logo">AM</div>
-            <div class="loader-progress-bar">
-                <div class="loader-progress-fill"></div>
+            <div class="loader-bar">
+                <div class="loader-fill"></div>
             </div>
-            <div class="loader-text">Initializing Neural Systems...</div>
+            <div class="loader-text">
+                <span id="loader-percent">0</span>%
+                <span class="loader-status">Initializing Neural Systems...</span>
+            </div>
         </div>
     </div>
 
     <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-outline" class="cursor-outline" aria-hidden="true"></div>
+    <div id="cursor-ripple" class="cursor-ripple" aria-hidden="true"></div>
 
     <!-- Background Effects -->
-    <div class="bg-aurora"></div>
-    <div class="bg-noise"></div>
-    <canvas id="neural-canvas"></canvas>
+    <div id="bg-aurora" class="bg-aurora" aria-hidden="true"></div>
+    <div id="bg-noise" class="bg-noise" aria-hidden="true"></div>
+    <div id="bg-grid" class="bg-grid" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav id="navbar" class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-progress" id="nav-progress"></div>
         <div class="nav-container">
-            <a href="#" class="nav-logo">
+            <a href="#" class="nav-logo magnetic" aria-label="Home">
                 <span class="logo-bracket">[</span>AM<span class="logo-bracket">]</span>
             </a>
-            <div class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" class="nav-cta">Resume</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link magnetic">About</a></li>
+                <li><a href="#ai-capabilities" class="nav-link magnetic">AI</a></li>
+                <li><a href="#projects" class="nav-link magnetic">Projects</a></li>
+                <li><a href="#skills" class="nav-link magnetic">Skills</a></li>
+                <li><a href="#metrics" class="nav-link magnetic">Metrics</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta magnetic">
+                <span>Let's Talk</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="hero-eyebrow">
-                        <span class="eyebrow-dot"></span>
-                        <span>AI / ML ENGINEER</span>
+            <div class="container hero-container">
+                <div class="hero-left">
+                    <div class="status-badge">
+                        <span class="pulse"></span>
+                        <span>Open for Internship</span>
                     </div>
                     <h1 class="hero-title">
-                        Building <span class="text-gradient">Intelligent Systems</span><br>
-                        for the next generation.
+                        <span class="line">Building</span>
+                        <span class="line">Intelligent</span>
+                        <span class="line text-gradient">Systems.</span>
                     </h1>
-                    <div class="hero-typing-container">
+                    <div class="hero-typing">
                         <span class="typing-prefix">I am a </span>
-                        <span class="typing-text"></span>
+                        <span class="typing-text" aria-label="Machine Learning Engineer"></span>
                         <span class="typing-cursor">|</span>
                     </div>
-                    <p class="hero-description">
-                        Specializing in predictive analytics, NLP, and deep learning. 
-                        Transforming complex data into scalable, production-ready AI solutions.
+                    <p class="hero-desc">
+                        Specializing in predictive analytics, NLP, and deep learning. Transforming complex data into scalable, production-ready AI solutions.
                     </p>
                     <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary magnetic">
-                            <span class="btn-text">View Projects</span>
-                            <span class="btn-glow"></span>
+                        <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" class="btn btn-primary magnetic" target="_blank" rel="noopener">
+                            <span>View Resume</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                         </a>
-                        <a href="#contact" class="btn btn-secondary magnetic">
-                            <span class="btn-text">Get in Touch</span>
+                        <a href="#projects" class="btn btn-secondary magnetic">
+                            <span>View Projects</span>
                         </a>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="visual-glow"></div>
-                    <!-- Canvas handles the neural network visualization -->
+                <div class="hero-right">
+                    <div id="three-container"></div>
+                    <div class="floating-panels" aria-hidden="true">
+                        <div class="panel panel-1">PyTorch</div>
+                        <div class="panel panel-2">XGBoost</div>
+                        <div class="panel panel-3">NLP</div>
+                    </div>
                 </div>
             </div>
             <div class="scroll-indicator">
-                <div class="scroll-line"></div>
                 <span>Scroll</span>
+                <div class="scroll-line"></div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about-section">
+        <section id="about" class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-number">01</span>
-                    <h2 class="section-title">About Me</h2>
+                    <span class="section-label">01 // About Me</span>
+                    <h2 class="section-title">Engineering the future <br><span class="text-gradient">from first principles.</span></h2>
                 </div>
                 <div class="about-grid">
-                    <div class="about-text">
-                        <p class="about-lead">
-                            I'm a third-year Computer Science student at <span class="text-accent">VIT-AP University</span>, 
-                            specializing in Artificial Intelligence and Machine Learning.
-                        </p>
-                        <p>
-                            My work sits at the intersection of data science and software engineering. 
-                            I don't just use AI frameworks; I build them from first principles to understand 
-                            the mathematical foundations driving modern intelligence. From predicting football 
-                            match outcomes with XGBoost to detecting recruitment fraud with NLP, I engineer 
-                            systems that solve real-world problems.
-                        </p>
+                    <div class="about-content">
+                        <p class="about-lead">I'm a third-year Computer Science student at VIT-AP University, specializing in Artificial Intelligence and Machine Learning.</p>
+                        <p class="about-text">My work sits at the intersection of data science and software engineering. I don't just use AI frameworks; I build them from first principles to understand the mathematical foundations driving modern intelligence. From predicting football match outcomes with XGBoost to detecting recruitment fraud with NLP, I engineer systems that solve real-world problems.</p>
+                        
                         <div class="about-stats">
-                            <div class="stat-item">
-                                <div class="stat-number" data-target="150">0</div>
-                                <div class="stat-label">Algorithms Solved</div>
+                            <div class="stat">
+                                <span class="stat-number" data-target="300">0</span>
+                                <span class="stat-label">Algorithms Solved</span>
                             </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-target="3">0</div>
-                                <div class="stat-label">Production Projects</div>
+                            <div class="stat">
+                                <span class="stat-number" data-target="15">0</span>
+                                <span class="stat-label">Production Projects</span>
                             </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-target="5">0</div>
-                                <div class="stat-label">ML Models Deployed</div>
+                            <div class="stat">
+                                <span class="stat-number" data-target="5">0</span>
+                                <span class="stat-label">ML Models Deployed</span>
                             </div>
                         </div>
                     </div>
-                    <div class="about-visual">
-                        <div class="glass-card about-card">
-                            <div class="card-header">
-                                <div class="card-dots">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <span class="card-title">system_status.log</span>
+                    <div class="about-terminal">
+                        <div class="terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-dots"><span></span><span></span><span></span></div>
+                                <span class="terminal-title">avinash@ai-engineer:~</span>
                             </div>
-                            <div class="card-body code-block">
-                                <div class="code-line"><span class="code-key">const</span> <span class="code-var">engineer</span> = {</div>
-                                <div class="code-line indent"><span class="code-prop">name</span>: <span class="code-string">"Avinash Margana"</span>,</div>
-                                <div class="code-line indent"><span class="code-prop">focus</span>: <span class="code-string">"AI/ML Engineering"</span>,</div>
-                                <div class="code-line indent"><span class="code-prop">stack</span>: [<span class="code-string">"Python"</span>, <span class="code-string">"PyTorch"</span>, <span class="code-string">"TensorFlow"</span>],</div>
-                                <div class="code-line indent"><span class="code-prop">status</span>: <span class="code-string">"Open to Work"</span></div>
-                                <div class="code-line">};</div>
+                            <div class="terminal-body">
+                                <div class="terminal-line"><span class="prompt">$</span> <span class="command">cat about.json</span></div>
+                                <div class="terminal-output">
+                                    {<br>
+                                    &nbsp;&nbsp;<span class="key">"name"</span>: <span class="string">"Avinash Margana"</span>,<br>
+                                    &nbsp;&nbsp;<span class="key">"role"</span>: <span class="string">"AI/ML Engineer"</span>,<br>
+                                    &nbsp;&nbsp;<span class="key">"education"</span>: <span class="string">"B.Tech CSE (AI/ML), VIT-AP"</span>,<br>
+                                    &nbsp;&nbsp;<span class="key">"focus"</span>: [<span class="string">"Predictive Analytics"</span>, <span class="string">"NLP"</span>, <span class="string">"Deep Learning"</span>]<br>
+                                    }
+                                </div>
+                                <div class="terminal-line"><span class="prompt">$</span> <span class="command typing-cmd"></span><span class="cursor">_</span></div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Capabilities Section -->
+        <section id="ai-capabilities" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">02 // AI Capabilities</span>
+                    <h2 class="section-title">Pushing the boundaries of <br><span class="text-gradient">Intelligence.</span></h2>
+                </div>
+                <div class="capabilities-grid">
+                    <div class="capability-card spotlight-card">
+                        <div class="cap-icon">🧠</div>
+                        <h3>Deep Learning</h3>
+                        <p>Building neural networks from scratch. Custom architectures, backpropagation, and optimization algorithms.</p>
+                    </div>
+                    <div class="capability-card spotlight-card">
+                        <div class="cap-icon">💬</div>
+                        <h3>NLP & LLMs</h3>
+                        <p>Transformer models, RAG pipelines, vector databases, and fine-tuning for domain-specific tasks.</p>
+                    </div>
+                    <div class="capability-card spotlight-card">
+                        <div class="cap-icon">📊</div>
+                        <h3>Predictive Analytics</h3>
+                        <p>XGBoost, Random Forests, and advanced feature engineering for high-stakes decision making.</p>
+                    </div>
+                    <div class="capability-card spotlight-card">
+                        <div class="cap-icon">👁️</div>
+                        <h3>Computer Vision</h3>
+                        <p>CNNs, object detection, and image segmentation using PyTorch and OpenCV.</p>
+                    </div>
+                    <div class="capability-card spotlight-card">
+                        <div class="cap-icon">🤖</div>
+                        <h3>AI Agents</h3>
+                        <p>Autonomous agents, tool usage, and multi-agent systems for complex workflow automation.</p>
+                    </div>
+                    <div class="capability-card spotlight-card">
+                        <div class="cap-icon">🔗</div>
+                        <h3>RAG & Vector DBs</h3>
+                        <p>Retrieval-Augmented Generation, embeddings, and semantic search with Pinecone/Chroma.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects-section">
+        <section id="projects" class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-number">02</span>
-                    <h2 class="section-title">Selected Works</h2>
-                    <p class="section-subtitle">Engineering intelligence at scale.</p>
+                    <span class="section-label">03 // Selected Works</span>
+                    <h2 class="section-title">Engineering intelligence <br><span class="text-gradient">at scale.</span></h2>
                 </div>
-                
                 <div class="projects-grid">
                     <!-- Project 1 -->
-                    <article class="project-card tilt-card">
-                        <div class="card-border-beam"></div>
-                        <div class="card-spotlight"></div>
-                        <div class="project-content">
+                    <article class="project-card tilt-card spotlight-card" data-modal="statvault">
+                        <div class="card-preview">
+                            <div class="preview-gradient grad-1"></div>
+                            <div class="preview-overlay"></div>
+                            <div class="card-border-beam"></div>
+                        </div>
+                        <div class="card-content">
                             <div class="project-meta">
                                 <span class="project-category">Machine Learning</span>
                                 <span class="project-year">2026</span>
                             </div>
                             <h3 class="project-title">StatVault AI</h3>
-                            <p class="project-desc">
-                                Production-ready ML subsystem powering football intelligence. 
-                                Predictive analytics and player profiling using XGBoost and K-Means 
-                                on 5M+ data points.
-                            </p>
+                            <p class="project-desc">Production-ready ML subsystem powering football intelligence. Predictive analytics and player profiling using XGBoost and K-Means on 5M+ data points.</p>
                             <div class="project-tech">
-                                <span>Python</span>
-                                <span>XGBoost</span>
-                                <span>Scikit-learn</span>
-                                <span>Feature Eng.</span>
+                                <span>Python</span><span>XGBoost</span><span>Scikit-learn</span><span>Feature Eng.</span>
                             </div>
                             <div class="project-metrics">
-                                <div class="metric">
-                                    <span class="metric-val">67.7%</span>
-                                    <span class="metric-label">Accuracy</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="metric-val">0.811</span>
-                                    <span class="metric-label">ROC-AUC</span>
-                                </div>
+                                <div class="metric"><span class="metric-val">67.7%</span><span class="metric-label">Accuracy</span></div>
+                                <div class="metric"><span class="metric-val">0.811</span><span class="metric-label">ROC-AUC</span></div>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/sai-ganesh-4539/StatVault/tree/feature/statvault-ml-updates" target="_blank" class="project-link">
-                                    <span>View Code</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                                </a>
+                                <a href="https://github.com/sai-ganesh-4539/StatVault/tree/feature/statvault-ml-updates" class="btn-link magnetic" target="_blank" rel="noopener">View Code <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                                <button class="btn-link modal-trigger magnetic" data-target="statvault">Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                             </div>
                         </div>
                     </article>
 
                     <!-- Project 2 -->
-                    <article class="project-card tilt-card">
-                        <div class="card-border-beam"></div>
-                        <div class="card-spotlight"></div>
-                        <div class="project-content">
+                    <article class="project-card tilt-card spotlight-card" data-modal="neural">
+                        <div class="card-preview">
+                            <div class="preview-gradient grad-2"></div>
+                            <div class="preview-overlay"></div>
+                            <div class="card-border-beam"></div>
+                        </div>
+                        <div class="card-content">
                             <div class="project-meta">
                                 <span class="project-category">Deep Learning</span>
                                 <span class="project-year">2026</span>
                             </div>
                             <h3 class="project-title">Neural Network From Scratch</h3>
-                            <p class="project-desc">
-                                A fully connected neural network implemented entirely from first principles 
-                                using only NumPy. No frameworks. Just mathematics and backpropagation.
-                            </p>
+                            <p class="project-desc">A fully connected neural network implemented entirely from first principles using only NumPy. No frameworks. Just mathematics and backpropagation.</p>
                             <div class="project-tech">
-                                <span>Python</span>
-                                <span>NumPy</span>
-                                <span>Linear Algebra</span>
-                                <span>Adam Optimizer</span>
+                                <span>Python</span><span>NumPy</span><span>Linear Algebra</span><span>Adam Optimizer</span>
                             </div>
                             <div class="project-metrics">
-                                <div class="metric">
-                                    <span class="metric-val">100%</span>
-                                    <span class="metric-label">From Scratch</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="metric-val">Modular</span>
-                                    <span class="metric-label">Architecture</span>
-                                </div>
+                                <div class="metric"><span class="metric-val">100%</span><span class="metric-label">From Scratch</span></div>
+                                <div class="metric"><span class="metric-val">Modular</span><span class="metric-label">Architecture</span></div>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/VasuML07/NeuralNetworkfromscratch" target="_blank" class="project-link">
-                                    <span>View Code</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                                </a>
+                                <a href="https://github.com/VasuML07/NeuralNetworkfromscratch" class="btn-link magnetic" target="_blank" rel="noopener">View Code <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                                <button class="btn-link modal-trigger magnetic" data-target="neural">Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                             </div>
                         </div>
                     </article>
 
                     <!-- Project 3 -->
-                    <article class="project-card tilt-card">
-                        <div class="card-border-beam"></div>
-                        <div class="card-spotlight"></div>
-                        <div class="project-content">
+                    <article class="project-card tilt-card spotlight-card" data-modal="fakejob">
+                        <div class="card-preview">
+                            <div class="preview-gradient grad-3"></div>
+                            <div class="preview-overlay"></div>
+                            <div class="card-border-beam"></div>
+                        </div>
+                        <div class="card-content">
                             <div class="project-meta">
                                 <span class="project-category">NLP / Web App</span>
                                 <span class="project-year">2025</span>
                             </div>
                             <h3 class="project-title">Fake Job Detection</h3>
-                            <p class="project-desc">
-                                NLP-powered application detecting fraudulent job postings in real-time. 
-                                Built with TF-IDF vectorization, Logistic Regression, and Streamlit.
-                            </p>
+                            <p class="project-desc">NLP-powered application detecting fraudulent job postings in real-time. Built with TF-IDF vectorization, Logistic Regression, and Streamlit.</p>
                             <div class="project-tech">
-                                <span>Python</span>
-                                <span>Scikit-learn</span>
-                                <span>TF-IDF</span>
-                                <span>Streamlit</span>
+                                <span>Python</span><span>Scikit-learn</span><span>TF-IDF</span><span>Streamlit</span>
                             </div>
                             <div class="project-metrics">
-                                <div class="metric">
-                                    <span class="metric-val">Real-time</span>
-                                    <span class="metric-label">Inference</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="metric-val">Live</span>
-                                    <span class="metric-label">Deployment</span>
-                                </div>
+                                <div class="metric"><span class="metric-val">Real-time</span><span class="metric-label">Inference</span></div>
+                                <div class="metric"><span class="metric-val">Live</span><span class="metric-label">Deployment</span></div>
                             </div>
                             <div class="project-actions">
-                                <a href="https://fakeprediction-a8wpvpp3uifhwxeduehaev.streamlit.app/" target="_blank" class="project-link">
-                                    <span>Live Demo</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                                </a>
-                                <a href="https://github.com/VasuML07/fakeprediction" target="_blank" class="project-link">
-                                    <span>Code</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                                </a>
+                                <a href="https://fakeprediction-a8wpvpp3uifhwxeduehaev.streamlit.app/" class="btn-link magnetic" target="_blank" rel="noopener">Live Demo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
+                                <button class="btn-link modal-trigger magnetic" data-target="fakejob">Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                             </div>
                         </div>
                     </article>
@@ -293,70 +328,91 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills-section">
+        <section id="skills" class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-number">03</span>
-                    <h2 class="section-title">Technical Arsenal</h2>
-                    <p class="section-subtitle">Tools and technologies I use to build the future.</p>
+                    <span class="section-label">04 // Technical Arsenal</span>
+                    <h2 class="section-title">Tools and technologies <br><span class="text-gradient">I use to build the future.</span></h2>
                 </div>
-                
                 <div class="skills-grid">
-                    <div class="skill-category glass-card">
-                        <div class="skill-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-                        </div>
-                        <h3 class="skill-title">Languages</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">SQL</span>
+                    <div class="skill-category">
+                        <h3 class="category-title">Languages</h3>
+                        <div class="skill-capsules">
+                            <div class="skill-capsule" data-level="95"><span class="skill-name">Python</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div><span class="skill-meta">Expert</span></div></div>
+                            <div class="skill-capsule" data-level="80"><span class="skill-name">Java</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div><span class="skill-meta">Advanced</span></div></div>
+                            <div class="skill-capsule" data-level="75"><span class="skill-name">C++</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div><span class="skill-meta">Proficient</span></div></div>
+                            <div class="skill-capsule" data-level="85"><span class="skill-name">JavaScript</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div><span class="skill-meta">Advanced</span></div></div>
+                            <div class="skill-capsule" data-level="80"><span class="skill-name">SQL</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div><span class="skill-meta">Advanced</span></div></div>
                         </div>
                     </div>
-
-                    <div class="skill-category glass-card">
-                        <div class="skill-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                        </div>
-                        <h3 class="skill-title">AI / ML Frameworks</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag highlight">TensorFlow</span>
-                            <span class="skill-tag highlight">PyTorch</span>
-                            <span class="skill-tag">Scikit-learn</span>
-                            <span class="skill-tag">NumPy</span>
-                            <span class="skill-tag">Pandas</span>
-                            <span class="skill-tag">OpenCV</span>
+                    <div class="skill-category">
+                        <h3 class="category-title">AI / ML Frameworks</h3>
+                        <div class="skill-capsules">
+                            <div class="skill-capsule" data-level="90"><span class="skill-name">TensorFlow</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
+                            <div class="skill-capsule" data-level="90"><span class="skill-name">PyTorch</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
+                            <div class="skill-capsule" data-level="95"><span class="skill-name">Scikit-learn</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div><span class="skill-meta">Expert</span></div></div>
+                            <div class="skill-capsule" data-level="95"><span class="skill-name">NumPy</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div><span class="skill-meta">Expert</span></div></div>
+                            <div class="skill-capsule" data-level="90"><span class="skill-name">Pandas</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
                         </div>
                     </div>
-
-                    <div class="skill-category glass-card">
-                        <div class="skill-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <h3 class="skill-title">Core Specializations</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag accent">Deep Learning</span>
-                            <span class="skill-tag accent">NLP</span>
-                            <span class="skill-tag accent">Computer Vision</span>
-                            <span class="skill-tag accent">Predictive Analytics</span>
-                            <span class="skill-tag">Data Structures</span>
+                    <div class="skill-category">
+                        <h3 class="category-title">Core Specializations</h3>
+                        <div class="skill-capsules">
+                            <div class="skill-capsule" data-level="90"><span class="skill-name">Deep Learning</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
+                            <div class="skill-capsule" data-level="85"><span class="skill-name">NLP</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div><span class="skill-meta">Advanced</span></div></div>
+                            <div class="skill-capsule" data-level="80"><span class="skill-name">Computer Vision</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div><span class="skill-meta">Advanced</span></div></div>
+                            <div class="skill-capsule" data-level="90"><span class="skill-name">Predictive Analytics</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
                         </div>
                     </div>
-
-                    <div class="skill-category glass-card">
-                        <div class="skill-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    <div class="skill-category">
+                        <h3 class="category-title">Tools & DevOps</h3>
+                        <div class="skill-capsules">
+                            <div class="skill-capsule" data-level="90"><span class="skill-name">Git</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
+                            <div class="skill-capsule" data-level="75"><span class="skill-name">Docker</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div><span class="skill-meta">Proficient</span></div></div>
+                            <div class="skill-capsule" data-level="85"><span class="skill-name">Linux</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div><span class="skill-meta">Advanced</span></div></div>
+                            <div class="skill-capsule" data-level="90"><span class="skill-name">Streamlit</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
                         </div>
-                        <h3 class="skill-title">Tools & DevOps</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Streamlit</span>
-                            <span class="skill-tag">Jupyter</span>
-                            <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics Section (GitHub & LeetCode) -->
+        <section id="metrics" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">05 // Engineering Metrics</span>
+                    <h2 class="section-title">Continuous <span class="text-gradient">Improvement.</span></h2>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card github-card">
+                        <div class="metric-header">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/VasuML07" target="_blank" class="metric-link" rel="noopener">View Profile</a>
+                        </div>
+                        <div class="metric-stats">
+                            <div class="stat"><span class="stat-val" data-target="342">0</span><span class="stat-label">Contributions</span></div>
+                            <div class="stat"><span class="stat-val" data-target="18">0</span><span class="stat-label">Repositories</span></div>
+                            <div class="stat"><span class="stat-val" data-target="64">0</span><span class="stat-label">Stars</span></div>
+                        </div>
+                        <div class="contribution-graph" id="github-graph"></div>
+                    </div>
+                    <div class="metric-card leetcode-card">
+                        <div class="metric-header">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 9.145l-1.465-2.846a.5.5 0 0 0-.886 0l-1.465 2.846-3.173.46a.5.5 0 0 0-.277.852l2.293 2.236-.541 3.155a.5.5 0 0 0 .724.526l2.843-1.495 2.843 1.495a.5.5 0 0 0 .724-.526l-.541-3.155 2.293-2.236a.5.5 0 0 0-.277-.852l-3.173-.46zM21.6 11.8l-4.6-8.9a1 1 0 0 0-1.77 0l-4.6 8.9a1 1 0 0 0 .89 1.46h9.2a1 1 0 0 0 .88-1.46z"/></svg>
+                            <h3>LeetCode</h3>
+                            <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="metric-link" rel="noopener">View Profile</a>
+                        </div>
+                        <div class="metric-stats">
+                            <div class="stat"><span class="stat-val" data-target="315">0</span><span class="stat-label">Solved</span></div>
+                            <div class="stat"><span class="stat-val" data-target="1650">0</span><span class="stat-label">Rating</span></div>
+                            <div class="stat"><span class="stat-val" data-target="45">0</span><span class="stat-label">Contests</span></div>
+                        </div>
+                        <div class="leetcode-chart">
+                            <div class="chart-bar easy" style="height: 80%"><span>Easy</span><span class="bar-val">150</span></div>
+                            <div class="chart-bar medium" style="height: 60%"><span>Medium</span><span class="bar-val">130</span></div>
+                            <div class="chart-bar hard" style="height: 30%"><span>Hard</span><span class="bar-val">35</span></div>
                         </div>
                     </div>
                 </div>
@@ -364,80 +420,79 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section">
+        <section id="contact" class="section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-number">04</span>
-                    <h2 class="section-title">Let's Build Together</h2>
-                    <p class="section-subtitle">Open to opportunities in AI/ML Engineering.</p>
+                    <span class="section-label">06 // Let's Build Together</span>
+                    <h2 class="section-title">Open to <span class="text-gradient">Opportunities.</span></h2>
                 </div>
-
-                <div class="contact-bento">
-                    <div class="bento-card bento-large glass-card">
-                        <div class="bento-content">
-                            <h3>Get in Touch</h3>
-                            <p>Have a project in mind or want to discuss AI research? My inbox is always open.</p>
-                            <a href="mailto:marganaavinash@gmail.com" class="btn btn-primary magnetic">
-                                <span class="btn-text">marganaavinash@gmail.com</span>
-                                <span class="btn-glow"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="bento-card glass-card">
+                <div class="bento-grid">
+                    <a href="mailto:marganaavinash@gmail.com" class="bento-card bento-large magnetic">
+                        <div class="bento-icon">✉️</div>
+                        <h3>marganaavinash@gmail.com</h3>
+                        <p>My inbox is always open. Let's discuss AI research or engineering opportunities.</p>
+                        <div class="bento-glow"></div>
+                    </a>
+                    <div class="bento-card">
                         <div class="bento-icon">📍</div>
                         <h4>Location</h4>
                         <p>Vijayawada, India</p>
                         <span class="status-badge"><span class="pulse"></span> Open to Remote</span>
                     </div>
-
-                    <div class="bento-card glass-card">
-                        <div class="bento-icon">📞</div>
-                        <h4>Phone</h4>
-                        <a href="tel:+919392989981" class="contact-link">+91 9392989981</a>
-                    </div>
-
-                    <div class="bento-card glass-card">
+                    <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" class="bento-card magnetic" target="_blank" rel="noopener">
                         <div class="bento-icon">💼</div>
                         <h4>LinkedIn</h4>
-                        <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" class="contact-link">Connect</a>
-                    </div>
-
-                    <div class="bento-card glass-card">
+                        <p>Connect with me</p>
+                    </a>
+                    <a href="https://github.com/VasuML07" class="bento-card magnetic" target="_blank" rel="noopener">
                         <div class="bento-icon">💻</div>
                         <h4>GitHub</h4>
-                        <a href="https://github.com/VasuML07" target="_blank" class="contact-link">View Code</a>
-                    </div>
-
-                    <div class="bento-card glass-card">
+                        <p>View my code</p>
+                    </a>
+                    <a href="https://leetcode.com/u/coder_2028/" class="bento-card magnetic" target="_blank" rel="noopener">
                         <div class="bento-icon">⚡</div>
                         <h4>LeetCode</h4>
-                        <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="contact-link">Profile</a>
-                    </div>
+                        <p>Problem solving</p>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <span class="footer-logo">[AM]</span>
-                    <p class="footer-copy">&copy; 2026 Avinash Margana. Engineered with precision.</p>
-                </div>
-                <div class="footer-right">
-                    <a href="#" class="back-to-top magnetic">
-                        <span>Back to top</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-                    </a>
-                </div>
+    <footer id="footer" class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <a href="#" class="footer-logo magnetic">
+                    <span class="logo-bracket">[</span>AM<span class="logo-bracket">]</span>
+                </a>
+                <p class="footer-copy">© 2026 Avinash Margana. Engineered with precision.</p>
             </div>
+            <a href="#" class="back-to-top magnetic" aria-label="Back to top">
+                <span>Back to top</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </a>
         </div>
     </footer>
 
-    <!-- Main Script -->
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
