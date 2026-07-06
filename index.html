@@ -1,498 +1,645 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avinash Margana | AI/ML Engineer</title>
-    <meta name="description" content="Avinash Margana - AI/ML Engineer specializing in predictive analytics, NLP, and deep learning. Building intelligent systems for the next generation.">
-    <meta name="keywords" content="AI Engineer, ML Engineer, Deep Learning, NLP, Python, PyTorch, Portfolio">
-    <meta name="author" content="Avinash Margana">
-    
-    <!-- OpenGraph -->
-    <meta property="og:title" content="Avinash Margana | AI/ML Engineer">
-    <meta property="og:description" content="Building Intelligent Systems for the next generation.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://avinashmargana.dev">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Avinash Margana | AI/ML Engineer">
-    <meta name="twitter:description" content="Building Intelligent Systems for the next generation.">
-    
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Avinash Margana",
-        "url": "https://avinashmargana.dev",
-        "jobTitle": "AI/ML Engineer",
-        "alumniOf": "VIT-AP University",
-        "sameAs": [
-            "https://www.linkedin.com/in/vasu-margana-49265031b/",
-            "https://github.com/VasuML07",
-            "https://leetcode.com/u/coder_2028/"
-        ]
-    }
-    </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Avinash Margana — AI/ML Engineer. Building intelligent systems from first principles." />
+<meta name="theme-color" content="#050816" />
+<title>Avinash Margana — AI/ML Engineer</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body class="loading">
 
-    <!-- Loader -->
-    <div id="loader" class="loader" role="status" aria-label="Loading">
-        <div class="loader-content">
-            <div class="loader-logo">AM</div>
-            <div class="loader-bar">
-                <div class="loader-fill"></div>
-            </div>
-            <div class="loader-text">
-                <span id="loader-percent">0</span>%
-                <span class="loader-status">Initializing Neural Systems...</span>
-            </div>
+<!-- =========================================
+BACKGROUND LAYERS
+========================================== -->
+<div class="bg-aurora" aria-hidden="true"></div>
+<div class="bg-stars" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-noise" aria-hidden="true"></div>
+<div class="bg-shooting" aria-hidden="true"></div>
+
+<!-- =========================================
+CUSTOM CURSOR
+========================================== -->
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-outline" id="cursor-outline"></div>
+<div class="cursor-ripple" id="cursor-ripple"></div>
+<div class="cursor-label" id="cursor-label"></div>
+
+<!-- =========================================
+AI BOOT SEQUENCE LOADER
+========================================== -->
+<div class="boot" id="boot" aria-live="polite">
+  <div class="boot-inner">
+    <div class="boot-logo">
+      <span class="boot-bracket">[</span>AM<span class="boot-bracket">]</span>
+    </div>
+    <div class="boot-title">NEURAL OS <span class="boot-version">v2.6</span></div>
+    <div class="boot-log" id="boot-log"></div>
+    <div class="boot-bar">
+      <div class="boot-fill" id="boot-fill"></div>
+    </div>
+    <div class="boot-status">
+      <span class="boot-percent" id="boot-percent">0%</span>
+      <span class="boot-dot"></span>
+      <span class="boot-hint">initializing intelligence</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================
+NAVBAR
+========================================== -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav-progress" id="nav-progress"></div>
+  <div class="nav-container">
+    <a href="#top" class="nav-logo" aria-label="Home">
+      <span class="nav-bracket">[</span>AM<span class="nav-bracket">]</span>
+      <span class="nav-dot"></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#arsenal" class="nav-link" data-section="arsenal">Arsenal</a></li>
+      <li><a href="#work" class="nav-link" data-section="work">Work</a></li>
+      <li><a href="#ecosystem" class="nav-link" data-section="ecosystem">Ecosystem</a></li>
+      <li><a href="#metrics" class="nav-link" data-section="metrics">Metrics</a></li>
+      <li><a href="#contact" class="nav-link nav-link-cta">Let's Talk</a></li>
+    </ul>
+    <button class="nav-menu" id="nav-menu" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="#about" class="nav-mobile-link">About</a>
+    <a href="#arsenal" class="nav-mobile-link">Arsenal</a>
+    <a href="#work" class="nav-mobile-link">Work</a>
+    <a href="#ecosystem" class="nav-mobile-link">Ecosystem</a>
+    <a href="#metrics" class="nav-mobile-link">Metrics</a>
+    <a href="#contact" class="nav-mobile-link">Let's Talk</a>
+  </div>
+</nav>
+
+<!-- =========================================
+HERO
+========================================== -->
+<header class="hero" id="top">
+  <div class="hero-container">
+    <div class="hero-left">
+      <div class="hero-status">
+        <span class="hero-status-dot"></span>
+        <span class="hero-status-text">Open for Internship · 2026</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-line"><span class="hero-word" data-split>Hello.</span></span>
+        <span class="hero-line"><span class="hero-word" data-split>I'm Avinash</span></span>
+        <span class="hero-line hero-line-accent">
+          <span class="hero-word" data-split>
+            <span class="hero-typed" id="hero-typed"></span><span class="hero-caret">_</span>
+          </span>
+        </span>
+      </h1>
+
+      <p class="hero-desc">
+        Third-year Computer Science student at VIT-AP University, specializing in
+        Artificial Intelligence and Machine Learning. I build intelligent systems
+        from first principles — predictive models, NLP pipelines, and neural
+        networks implemented without frameworks.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary magnetic" href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" rel="noopener" data-cursor="PDF">
+          <span>Resume</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+        <a class="btn btn-ghost magnetic" href="https://github.com/VasuML07" target="_blank" rel="noopener" data-cursor="CODE">
+          <span>GitHub</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a class="btn btn-ghost magnetic" href="#work" data-cursor="VIEW">
+          <span>View Work</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Based in</span>
+          <span class="hero-meta-value">Vijayawada, India</span>
         </div>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Focus</span>
+          <span class="hero-meta-value">AI · ML · Backend</span>
+        </div>
+        <div class="hero-meta-divider"></div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Currently</span>
+          <span class="hero-meta-value">GATE Preparation</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
-    <div id="cursor-outline" class="cursor-outline" aria-hidden="true"></div>
-    <div id="cursor-ripple" class="cursor-ripple" aria-hidden="true"></div>
+    <div class="hero-right">
+      <div class="hero-brain" id="hero-brain"></div>
+      <div class="hero-brain-label">
+        <span class="hero-brain-dot"></span>
+        <span>neural.runtime</span>
+        <span class="hero-brain-fps" id="hero-fps">60fps</span>
+      </div>
+      <div class="hero-float hero-float-1">
+        <span class="hero-float-key">model</span>
+        <span class="hero-float-val">transformer</span>
+      </div>
+      <div class="hero-float hero-float-2">
+        <span class="hero-float-key">loss</span>
+        <span class="hero-float-val">0.0042</span>
+      </div>
+      <div class="hero-float hero-float-3">
+        <span class="hero-float-key">epoch</span>
+        <span class="hero-float-val">128/256</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- Background Effects -->
-    <div id="bg-aurora" class="bg-aurora" aria-hidden="true"></div>
-    <div id="bg-noise" class="bg-noise" aria-hidden="true"></div>
-    <div id="bg-grid" class="bg-grid" aria-hidden="true"></div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</header>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar" role="navigation" aria-label="Main Navigation">
-        <div class="nav-progress" id="nav-progress"></div>
-        <div class="nav-container">
-            <a href="#" class="nav-logo magnetic" aria-label="Home">
-                <span class="logo-bracket">[</span>AM<span class="logo-bracket">]</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link magnetic">About</a></li>
-                <li><a href="#ai-capabilities" class="nav-link magnetic">AI</a></li>
-                <li><a href="#projects" class="nav-link magnetic">Projects</a></li>
-                <li><a href="#skills" class="nav-link magnetic">Skills</a></li>
-                <li><a href="#metrics" class="nav-link magnetic">Metrics</a></li>
-            </ul>
-            <a href="#contact" class="nav-cta magnetic">
-                <span>Let's Talk</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+<!-- =========================================
+ABOUT
+========================================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">01 / About</span>
+      <h2 class="section-title" data-split>Engineering intelligence from first principles.</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item" data-year="2024">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-date">2024 — Present</div>
+            <h3>VIT-AP University</h3>
+            <p>B.Tech Computer Science — specializing in Artificial Intelligence & Machine Learning. Building a foundation in algorithms, data structures, and mathematical reasoning.</p>
+            <div class="timeline-tags">
+              <span>AI / ML</span>
+              <span>Algorithms</span>
+              <span>Systems</span>
+            </div>
+          </div>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="container hero-container">
-                <div class="hero-left">
-                    <div class="status-badge">
-                        <span class="pulse"></span>
-                        <span>Open for Internship</span>
-                    </div>
-                    <h1 class="hero-title">
-                        <span class="line">Building</span>
-                        <span class="line">Intelligent</span>
-                        <span class="line text-gradient">Systems.</span>
-                    </h1>
-                    <div class="hero-typing">
-                        <span class="typing-prefix">I am a </span>
-                        <span class="typing-text" aria-label="Machine Learning Engineer"></span>
-                        <span class="typing-cursor">|</span>
-                    </div>
-                    <p class="hero-desc">
-                        Specializing in predictive analytics, NLP, and deep learning. Transforming complex data into scalable, production-ready AI solutions.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" class="btn btn-primary magnetic" target="_blank" rel="noopener">
-                            <span>View Resume</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                        </a>
-                        <a href="#projects" class="btn btn-secondary magnetic">
-                            <span>View Projects</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-right">
-                    <div id="three-container"></div>
-                    <div class="floating-panels" aria-hidden="true">
-                        <div class="panel panel-1">PyTorch</div>
-                        <div class="panel panel-2">XGBoost</div>
-                        <div class="panel panel-3">NLP</div>
-                    </div>
-                </div>
+        <div class="timeline-item" data-year="Focus">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-date">Current Focus</div>
+            <h3>Building & Learning</h3>
+            <p>Deepening work in generative AI, open source contributions, and GATE preparation. Shipping production-ready ML systems and exploring the intersection of research and engineering.</p>
+            <div class="timeline-tags">
+              <span>Generative AI</span>
+              <span>Open Source</span>
+              <span>GATE</span>
             </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <div class="scroll-line"></div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-year="Now">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-date">Philosophy</div>
+            <h3>First Principles</h3>
+            <p>I don't just use frameworks — I build them. From NumPy-only neural networks to custom backpropagation, I believe understanding the math is what separates engineers from importers.</p>
+            <div class="timeline-tags">
+              <span>Math-first</span>
+              <span>From Scratch</span>
+              <span>Production</span>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
 
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">01 // About Me</span>
-                    <h2 class="section-title">Engineering the future <br><span class="text-gradient">from first principles.</span></h2>
-                </div>
-                <div class="about-grid">
-                    <div class="about-content">
-                        <p class="about-lead">I'm a third-year Computer Science student at VIT-AP University, specializing in Artificial Intelligence and Machine Learning.</p>
-                        <p class="about-text">My work sits at the intersection of data science and software engineering. I don't just use AI frameworks; I build them from first principles to understand the mathematical foundations driving modern intelligence. From predicting football match outcomes with XGBoost to detecting recruitment fraud with NLP, I engineer systems that solve real-world problems.</p>
-                        
-                        <div class="about-stats">
-                            <div class="stat">
-                                <span class="stat-number" data-target="300">0</span>
-                                <span class="stat-label">Algorithms Solved</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number" data-target="15">0</span>
-                                <span class="stat-label">Production Projects</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number" data-target="5">0</span>
-                                <span class="stat-label">ML Models Deployed</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-terminal">
-                        <div class="terminal">
-                            <div class="terminal-header">
-                                <div class="terminal-dots"><span></span><span></span><span></span></div>
-                                <span class="terminal-title">avinash@ai-engineer:~</span>
-                            </div>
-                            <div class="terminal-body">
-                                <div class="terminal-line"><span class="prompt">$</span> <span class="command">cat about.json</span></div>
-                                <div class="terminal-output">
-                                    {<br>
-                                    &nbsp;&nbsp;<span class="key">"name"</span>: <span class="string">"Avinash Margana"</span>,<br>
-                                    &nbsp;&nbsp;<span class="key">"role"</span>: <span class="string">"AI/ML Engineer"</span>,<br>
-                                    &nbsp;&nbsp;<span class="key">"education"</span>: <span class="string">"B.Tech CSE (AI/ML), VIT-AP"</span>,<br>
-                                    &nbsp;&nbsp;<span class="key">"focus"</span>: [<span class="string">"Predictive Analytics"</span>, <span class="string">"NLP"</span>, <span class="string">"Deep Learning"</span>]<br>
-                                    }
-                                </div>
-                                <div class="terminal-line"><span class="prompt">$</span> <span class="command typing-cmd"></span><span class="cursor">_</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="about-terminal">
+        <div class="terminal">
+          <div class="terminal-head">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
             </div>
-        </section>
-
-        <!-- AI Capabilities Section -->
-        <section id="ai-capabilities" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">02 // AI Capabilities</span>
-                    <h2 class="section-title">Pushing the boundaries of <br><span class="text-gradient">Intelligence.</span></h2>
-                </div>
-                <div class="capabilities-grid">
-                    <div class="capability-card spotlight-card">
-                        <div class="cap-icon">🧠</div>
-                        <h3>Deep Learning</h3>
-                        <p>Building neural networks from scratch. Custom architectures, backpropagation, and optimization algorithms.</p>
-                    </div>
-                    <div class="capability-card spotlight-card">
-                        <div class="cap-icon">💬</div>
-                        <h3>NLP & LLMs</h3>
-                        <p>Transformer models, RAG pipelines, vector databases, and fine-tuning for domain-specific tasks.</p>
-                    </div>
-                    <div class="capability-card spotlight-card">
-                        <div class="cap-icon">📊</div>
-                        <h3>Predictive Analytics</h3>
-                        <p>XGBoost, Random Forests, and advanced feature engineering for high-stakes decision making.</p>
-                    </div>
-                    <div class="capability-card spotlight-card">
-                        <div class="cap-icon">👁️</div>
-                        <h3>Computer Vision</h3>
-                        <p>CNNs, object detection, and image segmentation using PyTorch and OpenCV.</p>
-                    </div>
-                    <div class="capability-card spotlight-card">
-                        <div class="cap-icon">🤖</div>
-                        <h3>AI Agents</h3>
-                        <p>Autonomous agents, tool usage, and multi-agent systems for complex workflow automation.</p>
-                    </div>
-                    <div class="capability-card spotlight-card">
-                        <div class="cap-icon">🔗</div>
-                        <h3>RAG & Vector DBs</h3>
-                        <p>Retrieval-Augmented Generation, embeddings, and semantic search with Pinecone/Chroma.</p>
-                    </div>
-                </div>
+            <div class="terminal-title">avinash@neural-os:~</div>
+            <div class="terminal-actions">
+              <button class="terminal-copy" id="terminal-copy" aria-label="Copy">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
             </div>
-        </section>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd" data-cmd="whoami"></span></div>
+            <div class="term-out" data-out="whoami"></div>
+            <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd" data-cmd="cat profile.json"></span></div>
+            <div class="term-out" data-out="profile"></div>
+            <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd" data-cmd="ls ./focus"></span></div>
+            <div class="term-out" data-out="focus"></div>
+            <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cursor">_</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">03 // Selected Works</span>
-                    <h2 class="section-title">Engineering intelligence <br><span class="text-gradient">at scale.</span></h2>
-                </div>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card tilt-card spotlight-card" data-modal="statvault">
-                        <div class="card-preview">
-                            <div class="preview-gradient grad-1"></div>
-                            <div class="preview-overlay"></div>
-                            <div class="card-border-beam"></div>
-                        </div>
-                        <div class="card-content">
-                            <div class="project-meta">
-                                <span class="project-category">Machine Learning</span>
-                                <span class="project-year">2026</span>
-                            </div>
-                            <h3 class="project-title">StatVault AI</h3>
-                            <p class="project-desc">Production-ready ML subsystem powering football intelligence. Predictive analytics and player profiling using XGBoost and K-Means on 5M+ data points.</p>
-                            <div class="project-tech">
-                                <span>Python</span><span>XGBoost</span><span>Scikit-learn</span><span>Feature Eng.</span>
-                            </div>
-                            <div class="project-metrics">
-                                <div class="metric"><span class="metric-val">67.7%</span><span class="metric-label">Accuracy</span></div>
-                                <div class="metric"><span class="metric-val">0.811</span><span class="metric-label">ROC-AUC</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/sai-ganesh-4539/StatVault/tree/feature/statvault-ml-updates" class="btn-link magnetic" target="_blank" rel="noopener">View Code <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-                                <button class="btn-link modal-trigger magnetic" data-target="statvault">Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                            </div>
-                        </div>
-                    </article>
+<!-- =========================================
+SKILLS / ARSENAL — CONSTELLATION
+========================================== -->
+<section class="section" id="arsenal">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">02 / Arsenal</span>
+      <h2 class="section-title" data-split>A constellation of tools, tuned for production.</h2>
+      <p class="section-sub">Hover any node to explore. Lines represent real relationships between technologies I use together.</p>
+    </div>
 
-                    <!-- Project 2 -->
-                    <article class="project-card tilt-card spotlight-card" data-modal="neural">
-                        <div class="card-preview">
-                            <div class="preview-gradient grad-2"></div>
-                            <div class="preview-overlay"></div>
-                            <div class="card-border-beam"></div>
-                        </div>
-                        <div class="card-content">
-                            <div class="project-meta">
-                                <span class="project-category">Deep Learning</span>
-                                <span class="project-year">2026</span>
-                            </div>
-                            <h3 class="project-title">Neural Network From Scratch</h3>
-                            <p class="project-desc">A fully connected neural network implemented entirely from first principles using only NumPy. No frameworks. Just mathematics and backpropagation.</p>
-                            <div class="project-tech">
-                                <span>Python</span><span>NumPy</span><span>Linear Algebra</span><span>Adam Optimizer</span>
-                            </div>
-                            <div class="project-metrics">
-                                <div class="metric"><span class="metric-val">100%</span><span class="metric-label">From Scratch</span></div>
-                                <div class="metric"><span class="metric-val">Modular</span><span class="metric-label">Architecture</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/VasuML07/NeuralNetworkfromscratch" class="btn-link magnetic" target="_blank" rel="noopener">View Code <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-                                <button class="btn-link modal-trigger magnetic" data-target="neural">Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                            </div>
-                        </div>
-                    </article>
+    <div class="constellation" id="constellation">
+      <svg class="constellation-lines" id="constellation-lines"></svg>
+      <div class="constellation-nodes" id="constellation-nodes"></div>
+    </div>
 
-                    <!-- Project 3 -->
-                    <article class="project-card tilt-card spotlight-card" data-modal="fakejob">
-                        <div class="card-preview">
-                            <div class="preview-gradient grad-3"></div>
-                            <div class="preview-overlay"></div>
-                            <div class="card-border-beam"></div>
-                        </div>
-                        <div class="card-content">
-                            <div class="project-meta">
-                                <span class="project-category">NLP / Web App</span>
-                                <span class="project-year">2025</span>
-                            </div>
-                            <h3 class="project-title">Fake Job Detection</h3>
-                            <p class="project-desc">NLP-powered application detecting fraudulent job postings in real-time. Built with TF-IDF vectorization, Logistic Regression, and Streamlit.</p>
-                            <div class="project-tech">
-                                <span>Python</span><span>Scikit-learn</span><span>TF-IDF</span><span>Streamlit</span>
-                            </div>
-                            <div class="project-metrics">
-                                <div class="metric"><span class="metric-val">Real-time</span><span class="metric-label">Inference</span></div>
-                                <div class="metric"><span class="metric-val">Live</span><span class="metric-label">Deployment</span></div>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://fakeprediction-a8wpvpp3uifhwxeduehaev.streamlit.app/" class="btn-link magnetic" target="_blank" rel="noopener">Live Demo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
-                                <button class="btn-link modal-trigger magnetic" data-target="fakejob">Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+    <div class="arsenal-grid">
+      <div class="arsenal-card">
+        <div class="arsenal-card-head">
+          <span class="arsenal-icon">⌘</span>
+          <h3>Languages</h3>
+        </div>
+        <div class="arsenal-list">
+          <div class="arsenal-item"><span>Python</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>JavaScript</span><span class="arsenal-level">Advanced</span></div>
+          <div class="arsenal-item"><span>Java</span><span class="arsenal-level">Advanced</span></div>
+          <div class="arsenal-item"><span>C++</span><span class="arsenal-level">Proficient</span></div>
+          <div class="arsenal-item"><span>SQL</span><span class="arsenal-level">Advanced</span></div>
+        </div>
+      </div>
+
+      <div class="arsenal-card">
+        <div class="arsenal-card-head">
+          <span class="arsenal-icon">◈</span>
+          <h3>AI / ML Frameworks</h3>
+        </div>
+        <div class="arsenal-list">
+          <div class="arsenal-item"><span>PyTorch</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>TensorFlow</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>Scikit-learn</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>NumPy</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>Pandas</span><span class="arsenal-level">Expert</span></div>
+        </div>
+      </div>
+
+      <div class="arsenal-card">
+        <div class="arsenal-card-head">
+          <span class="arsenal-icon">◉</span>
+          <h3>Specializations</h3>
+        </div>
+        <div class="arsenal-list">
+          <div class="arsenal-item"><span>Deep Learning</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>Predictive Analytics</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>NLP</span><span class="arsenal-level">Advanced</span></div>
+          <div class="arsenal-item"><span>Computer Vision</span><span class="arsenal-level">Advanced</span></div>
+        </div>
+      </div>
+
+      <div class="arsenal-card">
+        <div class="arsenal-card-head">
+          <span class="arsenal-icon">▣</span>
+          <h3>Tools & DevOps</h3>
+        </div>
+        <div class="arsenal-list">
+          <div class="arsenal-item"><span>Git</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>Streamlit</span><span class="arsenal-level">Expert</span></div>
+          <div class="arsenal-item"><span>Linux</span><span class="arsenal-level">Advanced</span></div>
+          <div class="arsenal-item"><span>Docker</span><span class="arsenal-level">Proficient</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+PROJECTS / WORK
+========================================== -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">03 / Selected Work</span>
+      <h2 class="section-title" data-split>Case studies in applied intelligence.</h2>
+      <p class="section-sub">Each project is a complete engineering story — problem, architecture, trade-offs, and lessons. No fabricated metrics.</p>
+    </div>
+
+    <div class="work-list">
+
+      <!-- PROJECT 1 -->
+      <article class="work-card" data-project="statvault">
+        <div class="work-card-inner">
+          <div class="work-card-preview">
+            <div class="work-gradient work-gradient-1"></div>
+            <div class="work-beam"></div>
+            <div class="work-preview-label">
+              <span>01</span>
+              <span>Machine Learning · 2026</span>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">04 // Technical Arsenal</span>
-                    <h2 class="section-title">Tools and technologies <br><span class="text-gradient">I use to build the future.</span></h2>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="category-title">Languages</h3>
-                        <div class="skill-capsules">
-                            <div class="skill-capsule" data-level="95"><span class="skill-name">Python</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div><span class="skill-meta">Expert</span></div></div>
-                            <div class="skill-capsule" data-level="80"><span class="skill-name">Java</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div><span class="skill-meta">Advanced</span></div></div>
-                            <div class="skill-capsule" data-level="75"><span class="skill-name">C++</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div><span class="skill-meta">Proficient</span></div></div>
-                            <div class="skill-capsule" data-level="85"><span class="skill-name">JavaScript</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div><span class="skill-meta">Advanced</span></div></div>
-                            <div class="skill-capsule" data-level="80"><span class="skill-name">SQL</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div><span class="skill-meta">Advanced</span></div></div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="category-title">AI / ML Frameworks</h3>
-                        <div class="skill-capsules">
-                            <div class="skill-capsule" data-level="90"><span class="skill-name">TensorFlow</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
-                            <div class="skill-capsule" data-level="90"><span class="skill-name">PyTorch</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
-                            <div class="skill-capsule" data-level="95"><span class="skill-name">Scikit-learn</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div><span class="skill-meta">Expert</span></div></div>
-                            <div class="skill-capsule" data-level="95"><span class="skill-name">NumPy</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div><span class="skill-meta">Expert</span></div></div>
-                            <div class="skill-capsule" data-level="90"><span class="skill-name">Pandas</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="category-title">Core Specializations</h3>
-                        <div class="skill-capsules">
-                            <div class="skill-capsule" data-level="90"><span class="skill-name">Deep Learning</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
-                            <div class="skill-capsule" data-level="85"><span class="skill-name">NLP</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div><span class="skill-meta">Advanced</span></div></div>
-                            <div class="skill-capsule" data-level="80"><span class="skill-name">Computer Vision</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div><span class="skill-meta">Advanced</span></div></div>
-                            <div class="skill-capsule" data-level="90"><span class="skill-name">Predictive Analytics</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="category-title">Tools & DevOps</h3>
-                        <div class="skill-capsules">
-                            <div class="skill-capsule" data-level="90"><span class="skill-name">Git</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
-                            <div class="skill-capsule" data-level="75"><span class="skill-name">Docker</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div><span class="skill-meta">Proficient</span></div></div>
-                            <div class="skill-capsule" data-level="85"><span class="skill-name">Linux</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div><span class="skill-meta">Advanced</span></div></div>
-                            <div class="skill-capsule" data-level="90"><span class="skill-name">Streamlit</span><div class="skill-info"><div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div><span class="skill-meta">Expert</span></div></div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-meta">
+              <span class="work-tag">Production ML</span>
+              <span class="work-year">2026</span>
             </div>
-        </section>
-
-        <!-- Metrics Section (GitHub & LeetCode) -->
-        <section id="metrics" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">05 // Engineering Metrics</span>
-                    <h2 class="section-title">Continuous <span class="text-gradient">Improvement.</span></h2>
-                </div>
-                <div class="metrics-grid">
-                    <div class="metric-card github-card">
-                        <div class="metric-header">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            <h3>GitHub</h3>
-                            <a href="https://github.com/VasuML07" target="_blank" class="metric-link" rel="noopener">View Profile</a>
-                        </div>
-                        <div class="metric-stats">
-                            <div class="stat"><span class="stat-val" data-target="342">0</span><span class="stat-label">Contributions</span></div>
-                            <div class="stat"><span class="stat-val" data-target="18">0</span><span class="stat-label">Repositories</span></div>
-                            <div class="stat"><span class="stat-val" data-target="64">0</span><span class="stat-label">Stars</span></div>
-                        </div>
-                        <div class="contribution-graph" id="github-graph"></div>
-                    </div>
-                    <div class="metric-card leetcode-card">
-                        <div class="metric-header">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 9.145l-1.465-2.846a.5.5 0 0 0-.886 0l-1.465 2.846-3.173.46a.5.5 0 0 0-.277.852l2.293 2.236-.541 3.155a.5.5 0 0 0 .724.526l2.843-1.495 2.843 1.495a.5.5 0 0 0 .724-.526l-.541-3.155 2.293-2.236a.5.5 0 0 0-.277-.852l-3.173-.46zM21.6 11.8l-4.6-8.9a1 1 0 0 0-1.77 0l-4.6 8.9a1 1 0 0 0 .89 1.46h9.2a1 1 0 0 0 .88-1.46z"/></svg>
-                            <h3>LeetCode</h3>
-                            <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="metric-link" rel="noopener">View Profile</a>
-                        </div>
-                        <div class="metric-stats">
-                            <div class="stat"><span class="stat-val" data-target="315">0</span><span class="stat-label">Solved</span></div>
-                            <div class="stat"><span class="stat-val" data-target="1650">0</span><span class="stat-label">Rating</span></div>
-                            <div class="stat"><span class="stat-val" data-target="45">0</span><span class="stat-label">Contests</span></div>
-                        </div>
-                        <div class="leetcode-chart">
-                            <div class="chart-bar easy" style="height: 80%"><span>Easy</span><span class="bar-val">150</span></div>
-                            <div class="chart-bar medium" style="height: 60%"><span>Medium</span><span class="bar-val">130</span></div>
-                            <div class="chart-bar hard" style="height: 30%"><span>Hard</span><span class="bar-val">35</span></div>
-                        </div>
-                    </div>
-                </div>
+            <h3 class="work-card-title">StatVault AI</h3>
+            <p class="work-card-desc">Production-ready ML subsystem powering football intelligence — predictive analytics and player profiling using XGBoost and K-Means clustering on 5M+ data points.</p>
+            <div class="work-stack">
+              <span>Python</span><span>XGBoost</span><span>Scikit-learn</span><span>Pandas</span><span>Feature Engineering</span>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">06 // Let's Build Together</span>
-                    <h2 class="section-title">Open to <span class="text-gradient">Opportunities.</span></h2>
-                </div>
-                <div class="bento-grid">
-                    <a href="mailto:marganaavinash@gmail.com" class="bento-card bento-large magnetic">
-                        <div class="bento-icon">✉️</div>
-                        <h3>marganaavinash@gmail.com</h3>
-                        <p>My inbox is always open. Let's discuss AI research or engineering opportunities.</p>
-                        <div class="bento-glow"></div>
-                    </a>
-                    <div class="bento-card">
-                        <div class="bento-icon">📍</div>
-                        <h4>Location</h4>
-                        <p>Vijayawada, India</p>
-                        <span class="status-badge"><span class="pulse"></span> Open to Remote</span>
-                    </div>
-                    <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" class="bento-card magnetic" target="_blank" rel="noopener">
-                        <div class="bento-icon">💼</div>
-                        <h4>LinkedIn</h4>
-                        <p>Connect with me</p>
-                    </a>
-                    <a href="https://github.com/VasuML07" class="bento-card magnetic" target="_blank" rel="noopener">
-                        <div class="bento-icon">💻</div>
-                        <h4>GitHub</h4>
-                        <p>View my code</p>
-                    </a>
-                    <a href="https://leetcode.com/u/coder_2028/" class="bento-card magnetic" target="_blank" rel="noopener">
-                        <div class="bento-icon">⚡</div>
-                        <h4>LeetCode</h4>
-                        <p>Problem solving</p>
-                    </a>
-                </div>
+            <div class="work-card-foot">
+              <button class="work-open" data-cursor="OPEN">
+                <span>Open Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <a class="work-link" href="https://github.com/sai-ganesh-4539/StatVault/tree/feature/statvault-ml-updates" target="_blank" rel="noopener" data-cursor="CODE">
+                <span>Repository</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </a>
             </div>
-        </section>
-    </main>
+          </div>
+        </div>
+      </article>
 
-    <!-- Footer -->
-    <footer id="footer" class="footer">
-        <div class="container footer-content">
-            <div class="footer-left">
-                <a href="#" class="footer-logo magnetic">
-                    <span class="logo-bracket">[</span>AM<span class="logo-bracket">]</span>
+      <!-- PROJECT 2 -->
+      <article class="work-card" data-project="neural">
+        <div class="work-card-inner">
+          <div class="work-card-preview">
+            <div class="work-gradient work-gradient-2"></div>
+            <div class="work-beam"></div>
+            <div class="work-preview-label">
+              <span>02</span>
+              <span>Deep Learning · 2026</span>
+            </div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-meta">
+              <span class="work-tag">From Scratch</span>
+              <span class="work-year">2026</span>
+            </div>
+            <h3 class="work-card-title">Neural Network From Scratch</h3>
+            <p class="work-card-desc">A fully connected neural network implemented entirely from first principles using only NumPy. No frameworks — just mathematics, custom backpropagation, and the Adam optimizer.</p>
+            <div class="work-stack">
+              <span>Python</span><span>NumPy</span><span>Linear Algebra</span><span>Calculus</span><span>Adam Optimizer</span>
+            </div>
+            <div class="work-card-foot">
+              <button class="work-open" data-cursor="OPEN">
+                <span>Open Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <a class="work-link" href="https://github.com/VasuML07/NeuralNetworkfromscratch" target="_blank" rel="noopener" data-cursor="CODE">
+                <span>Repository</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 3 -->
+      <article class="work-card" data-project="fakejob">
+        <div class="work-card-inner">
+          <div class="work-card-preview">
+            <div class="work-gradient work-gradient-3"></div>
+            <div class="work-beam"></div>
+            <div class="work-preview-label">
+              <span>03</span>
+              <span>NLP · Web App · 2025</span>
+            </div>
+          </div>
+          <div class="work-card-body">
+            <div class="work-card-meta">
+              <span class="work-tag">NLP · Live</span>
+              <span class="work-year">2025</span>
+            </div>
+            <h3 class="work-card-title">Fake Job Detection</h3>
+            <p class="work-card-desc">NLP-powered application detecting fraudulent job postings in real-time. Built with TF-IDF vectorization, Logistic Regression, and deployed live via Streamlit.</p>
+            <div class="work-stack">
+              <span>Python</span><span>Scikit-learn</span><span>TF-IDF</span><span>Streamlit</span><span>NLP</span>
+            </div>
+            <div class="work-card-foot">
+              <button class="work-open" data-cursor="OPEN">
+                <span>Open Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <div class="work-foot-right">
+                <a class="work-link" href="https://fakeprediction-a8wpvpp3uifhwxeduehaev.streamlit.app/" target="_blank" rel="noopener" data-cursor="LIVE">
+                  <span>Live Demo</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
                 </a>
-                <p class="footer-copy">© 2026 Avinash Margana. Engineered with precision.</p>
+              </div>
             </div>
-            <a href="#" class="back-to-top magnetic" aria-label="Back to top">
-                <span>Back to top</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-            </a>
+          </div>
         </div>
-    </footer>
+      </article>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </button>
-            <div class="modal-body" id="modal-body">
-                <!-- Dynamic content -->
-            </div>
-        </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+AI ECOSYSTEM
+========================================== -->
+<section class="section" id="ecosystem">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">04 / Ecosystem</span>
+      <h2 class="section-title" data-split>The intelligence stack I operate in.</h2>
+      <p class="section-sub">An interactive map of the AI domain — from classical ML to deployed agents. Hover any node to explore.</p>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="script.js"></script>
+    <div class="eco" id="eco">
+      <svg class="eco-lines" id="eco-lines" viewBox="0 0 1000 600" preserveAspectRatio="none"></svg>
+      <div class="eco-nodes" id="eco-nodes"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+METRICS
+========================================== -->
+<section class="section" id="metrics">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">05 / Metrics</span>
+      <h2 class="section-title" data-split>Continuous improvement, measured.</h2>
+      <p class="section-sub">Live data pulled directly from GitHub and LeetCode. No fabricated numbers.</p>
+    </div>
+
+    <div class="metrics-grid">
+
+      <div class="metric-card metric-github">
+        <div class="metric-head">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.1.82-.26.82-.58v-2.17c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <h3>GitHub</h3>
+          <a class="metric-link" href="https://github.com/VasuML07" target="_blank" rel="noopener">View Profile →</a>
+        </div>
+        <div class="metric-stats">
+          <div class="metric-stat">
+            <span class="metric-val" id="gh-repos">—</span>
+            <span class="metric-label">Repositories</span>
+          </div>
+          <div class="metric-stat">
+            <span class="metric-val" id="gh-stars">—</span>
+            <span class="metric-label">Stars Earned</span>
+          </div>
+          <div class="metric-stat">
+            <span class="metric-val" id="gh-followers">—</span>
+            <span class="metric-label">Followers</span>
+          </div>
+        </div>
+        <div class="metric-contrib" id="gh-contrib">
+          <div class="metric-contrib-loading">Loading contribution graph…</div>
+        </div>
+      </div>
+
+      <div class="metric-card metric-leetcode">
+        <div class="metric-head">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 9.105l-1.604-5.589 3.537-.956 1.596 5.571c.867-.364 1.894-.42 3.013-.052 3.693 1.213 4.644 5.403 2.119 9.345-2.526 3.942-6.84 6.133-10.533 4.92-2.67-.877-3.99-3.254-3.795-6.087l1.854-.5c-.155 2.243.822 3.731 2.564 4.303 2.65.869 5.905-.868 7.93-4.03 2.025-3.163 1.686-6.537-.964-7.406-1.467-.482-2.77-.142-3.713.971zM9.54 2.237l3.536-.956 1.123 3.917-3.537.956L9.54 2.237zM2.237 9.54l.956 3.537 3.917-1.123-.956-3.537L2.237 9.54z"/></svg>
+          <h3>LeetCode</h3>
+          <a class="metric-link" href="https://leetcode.com/u/coder_2028/" target="_blank" rel="noopener">View Profile →</a>
+        </div>
+        <div class="metric-stats">
+          <div class="metric-stat">
+            <span class="metric-val" id="lc-solved">—</span>
+            <span class="metric-label">Problems Solved</span>
+          </div>
+          <div class="metric-stat">
+            <span class="metric-val" id="lc-rating">—</span>
+            <span class="metric-label">Contest Rating</span>
+          </div>
+          <div class="metric-stat">
+            <span class="metric-val" id="lc-contests">—</span>
+            <span class="metric-label">Contests</span>
+          </div>
+        </div>
+        <div class="metric-distribution">
+          <div class="dist-bar">
+            <div class="dist-fill dist-easy" id="lc-easy" style="width:0%"></div>
+            <span class="dist-label">Easy <span id="lc-easy-n">—</span></span>
+          </div>
+          <div class="dist-bar">
+            <div class="dist-fill dist-medium" id="lc-medium" style="width:0%"></div>
+            <span class="dist-label">Medium <span id="lc-medium-n">—</span></span>
+          </div>
+          <div class="dist-bar">
+            <div class="dist-fill dist-hard" id="lc-hard" style="width:0%"></div>
+            <span class="dist-label">Hard <span id="lc-hard-n">—</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+CONTACT
+========================================== -->
+<section class="section section-contact" id="contact">
+  <div class="container">
+    <div class="contact-card">
+      <div class="contact-glow"></div>
+      <div class="contact-inner">
+        <span class="section-label">06 / Let's Build</span>
+        <h2 class="contact-title" data-split>Open to opportunities.<br/>Let's build something intelligent.</h2>
+        <p class="contact-desc">My inbox is always open — whether you have a question, an AI research idea, an engineering opportunity, or just want to say hi.</p>
+
+        <a class="contact-email magnetic" href="mailto:marganaavinash@gmail.com" data-cursor="MAIL">
+          <span class="contact-email-label">Write to me</span>
+          <span class="contact-email-value">marganaavinash@gmail.com</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </a>
+
+        <div class="contact-links">
+          <a class="contact-link" href="https://www.linkedin.com/in/avinash-margana/" target="_blank" rel="noopener" data-cursor="OPEN">
+            <span>LinkedIn</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </a>
+          <a class="contact-link" href="https://github.com/VasuML07" target="_blank" rel="noopener" data-cursor="CODE">
+            <span>GitHub</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </a>
+          <a class="contact-link" href="https://leetcode.com/u/coder_2028/" target="_blank" rel="noopener" data-cursor="OPEN">
+            <span>LeetCode</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </a>
+          <a class="contact-link" href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" rel="noopener" data-cursor="PDF">
+            <span>Resume</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </a>
+        </div>
+
+        <div class="contact-foot">
+          <div class="contact-location">
+            <span class="contact-location-dot"></span>
+            <span>Vijayawada, India · Open to Remote</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+FOOTER
+========================================== -->
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-left">
+      <div class="footer-logo"><span class="nav-bracket">[</span>AM<span class="nav-bracket">]</span></div>
+      <div class="footer-copy">© 2026 Avinash Margana · Engineered with precision.</div>
+    </div>
+    <a class="footer-top" href="#top">
+      <span>Back to top</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </a>
+  </div>
+</footer>
+
+<!-- =========================================
+PROJECT MODAL
+========================================== -->
+<div class="modal" id="modal" aria-hidden="true" role="dialog">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
