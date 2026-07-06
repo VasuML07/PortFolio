@@ -1,25 +1,39 @@
 :root {
     --bg-color: #0d1117;
-    --text-color: #c9d1d9;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
     --accent-color: #58a6ff;
     --border-color: #30363d;
     --card-bg: #161b22;
+    --success-color: #22c55e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
+    color: var(--text-primary);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Global Layout & Navigation --- */
 header {
-    background-color: var(--card-bg);
+    background-color: rgba(13, 17, 23, 0.85);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
-    padding: 1rem 2rem;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 nav {
@@ -28,26 +42,28 @@ nav {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem 2rem;
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 700;
+    font-size: 1.25rem;
     color: var(--accent-color);
+    letter-spacing: -0.5px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 2rem;
-    margin: 0;
-    padding: 0;
 }
 
 nav a {
-    color: var(--text-color);
+    color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
+    transition: color 0.2s ease;
+    position: relative;
 }
 
 nav a:hover {
@@ -61,65 +77,97 @@ main {
 }
 
 section {
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
 }
 
 h1, h2, h3 {
     color: #ffffff;
 }
 
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* --- Hero Section --- */
 #hero {
     text-align: center;
-    padding: 4rem 0;
+    padding: 6rem 0 4rem;
 }
 
 #hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+#hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
 }
 
 .links {
-    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .links a {
     display: inline-block;
-    margin: 0 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     color: var(--accent-color);
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.links a:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 20px rgba(88, 166, 255, 0.15);
+}
+
+/* --- Projects Grid --- */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .project-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 1.5rem;
-    border-radius: 8px;
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 .project-card a {
     color: var(--accent-color);
     text-decoration: none;
     font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-footer {
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid var(--border-color);
-    color: #8b949e;
-}
-
-/* Skills Section - World Class Layout */
+/* --- FAANG-Level Skills Section --- */
 #skills {
     margin-bottom: 6rem;
 }
@@ -127,29 +175,31 @@ footer {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    gap: 2rem;
     margin-top: 2rem;
 }
 
 .skill-category {
-    background: rgba(22, 27, 34, 0.4);
-    padding: 1.5rem;
-    border-radius: 12px;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .skill-category:hover {
     border-color: rgba(88, 166, 255, 0.3);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 .category-title {
-    font-size: 1.1rem;
-    color: var(--text-primary);
-    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -173,37 +223,24 @@ footer {
 .skill-tag {
     background-color: rgba(88, 166, 255, 0.05);
     color: var(--text-secondary);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
     font-weight: 500;
-    border: 1px solid rgba(88, 166, 255, 0.1);
+    border: 1px solid var(--border-color);
     transition: all 0.2s ease;
     cursor: default;
 }
 
 .skill-tag:hover {
-    background-color: rgba(88, 166, 255, 0.15);
-    color: var(--accent-color);
+    background-color: rgba(88, 166, 255, 0.1);
     border-color: var(--accent-color);
+    color: var(--accent-color);
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .skill-category {
-        padding: 1.25rem;
-    }
-}
-
-
-/* Contact Section - Premium Grid Layout */
+/* --- Premium Contact Section --- */
 #contact {
     margin-bottom: 4rem;
 }
@@ -298,7 +335,7 @@ footer {
     align-items: center;
     gap: 0.5rem;
     background: rgba(34, 197, 94, 0.1);
-    color: #22c55e;
+    color: var(--success-color);
     padding: 0.35rem 0.75rem;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -309,7 +346,7 @@ footer {
 .pulse {
     width: 8px;
     height: 8px;
-    background-color: #22c55e;
+    background-color: var(--success-color);
     border-radius: 50%;
     animation: pulse 2s infinite;
 }
@@ -324,12 +361,52 @@ footer {
     width: 100%;
     justify-content: center;
     margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Responsive Adjustments */
+.btn-full:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 20px rgba(88, 166, 255, 0.15);
+}
+
+/* --- Responsive Design --- */
 @media (max-width: 1024px) {
     .contact-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .skill-category {
+        padding: 1.5rem;
     }
 }
 
@@ -340,5 +417,9 @@ footer {
     
     .contact-header h2 {
         font-size: 2rem;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
     }
 }
