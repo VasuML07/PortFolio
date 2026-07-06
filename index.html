@@ -4,40 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avinash Margana | AI Engineer</title>
-    <link rel="stylesheet" href="styles.css">
     <meta name="description" content="Portfolio of Avinash Margana, an AI Engineer specializing in Machine Learning, NLP, and Deep Learning.">
+    
+    <!-- Preload critical assets for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Animated Background Mesh -->
-    <div class="bg-mesh"></div>
+    <!-- 
+      ANIMATED MESH BACKGROUND 
+      Layered radial gradients with parallax movement to create depth without distraction.
+      Uses GPU-accelerated transform properties for 60fps animation.
+    -->
+    <div class="bg-mesh" aria-hidden="true"></div>
     
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress"></div>
+    <!-- SCROLL PROGRESS INDICATOR -->
+    <!-- Thin gradient bar at viewport top indicating reading progress -->
+    <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
 
-    <header class="glass-header">
-        <nav>
-            <div class="logo">Avinash Margana</div>
+    <!-- GLASSMORPHISM HEADER -->
+    <!-- Sticky nav with backdrop-filter blur and border transparency transition on scroll -->
+    <header class="glass-header" id="main-header">
+        <nav aria-label="Main navigation">
+            <a href="#hero" class="logo" aria-label="Avinash Margana Home">Avinash Margana</a>
             <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hero" class="reveal-section">
+        <!-- HERO SECTION -->
+        <!-- Staggered reveal: h1 (0ms), p (100ms), links (200ms) -->
+        <section id="hero" class="reveal-section" data-delay="0">
             <h1 class="gradient-text">AI Engineer</h1>
             <p class="hero-subtitle">Building scalable web applications with integration of AI</p>
-            <div class="links">
-                <a href="https://github.com/VasuML07" target="_blank" class="btn btn-primary">GitHub</a>
-                <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" class="btn btn-secondary">LinkedIn</a>
-                <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="btn btn-secondary">LeetCode</a>
-                <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" class="btn btn-accent">Resume</a>
+            
+            <!-- Button group with shimmer hover effect and directional gradient shine -->
+            <div class="links" data-delay="200">
+                <a href="https://github.com/VasuML07" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <span class="btn-shine"></span>GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <span class="btn-shine"></span>LinkedIn
+                </a>
+                <a href="https://leetcode.com/u/coder_2028/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <span class="btn-shine"></span>LeetCode
+                </a>
+                <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+                    <span class="btn-shine"></span>Resume
+                </a>
             </div>
         </section>
 
+        <!-- ABOUT SECTION -->
+        <!-- Glass card with subtle inner glow and border highlight on hover -->
         <section id="about" class="reveal-section" data-delay="100">
             <h2 class="section-title">About Me</h2>
             <div class="about-card glass-card">
@@ -45,10 +69,14 @@
             </div>
         </section>
 
+        <!-- PROJECTS SECTION -->
+        <!-- Grid with staggered item reveals (100ms delay between cards) -->
         <section id="projects" class="reveal-section" data-delay="200">
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-grid">
-                <article class="project-card glass-card reveal-item">
+                
+                <!-- Project Card 1: StatVault AI -->
+                <article class="project-card glass-card reveal-item" data-delay="0">
                     <div class="project-content">
                         <h3>StatVault AI</h3>
                         <p>Football analytics platform with ML subsystem for match prediction and player profiling using XGBoost and K-Means.</p>
@@ -57,11 +85,15 @@
                             <span class="tech-tag">XGBoost</span>
                             <span class="tech-tag">Scikit-learn</span>
                         </div>
-                        <a href="projects/01-statvault-ai/" class="project-link">View Case Study →</a>
+                        <a href="projects/01-statvault-ai/" class="project-link">
+                            View Case Study 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
                 </article>
 
-                <article class="project-card glass-card reveal-item">
+                <!-- Project Card 2: Neural Network From Scratch -->
+                <article class="project-card glass-card reveal-item" data-delay="100">
                     <div class="project-content">
                         <h3>Neural Network From Scratch</h3>
                         <p>Fully connected neural network implemented using only NumPy, demonstrating forward/backward propagation from first principles.</p>
@@ -70,11 +102,15 @@
                             <span class="tech-tag">NumPy</span>
                             <span class="tech-tag">Linear Algebra</span>
                         </div>
-                        <a href="projects/02-neural-network-scratch/" class="project-link">View Case Study →</a>
+                        <a href="projects/02-neural-network-scratch/" class="project-link">
+                            View Case Study 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
                 </article>
 
-                <article class="project-card glass-card reveal-item">
+                <!-- Project Card 3: Fake Job Detection -->
+                <article class="project-card glass-card reveal-item" data-delay="200">
                     <div class="project-content">
                         <h3>Fake Job Detection</h3>
                         <p>NLP-based application to classify fraudulent job postings with real-time Streamlit interface using TF-IDF and Logistic Regression.</p>
@@ -83,16 +119,22 @@
                             <span class="tech-tag">Streamlit</span>
                             <span class="tech-tag">TF-IDF</span>
                         </div>
-                        <a href="projects/03-fake-job-detection/" class="project-link">View Case Study →</a>
+                        <a href="projects/03-fake-job-detection/" class="project-link">
+                            View Case Study 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
                 </article>
             </div>
         </section>
 
+        <!-- SKILLS SECTION -->
+        <!-- 2x2 grid with category-specific badge styling -->
         <section id="skills" class="reveal-section" data-delay="300">
             <h2 class="section-title">Technical Expertise</h2>
             <div class="skills-grid">
-                <div class="skill-category glass-card reveal-item">
+                
+                <div class="skill-category glass-card reveal-item" data-delay="0">
                     <h3 class="category-title">Programming Languages</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
@@ -102,7 +144,8 @@
                         <span class="skill-tag">SQL</span>
                     </div>
                 </div>
-                <div class="skill-category glass-card reveal-item">
+
+                <div class="skill-category glass-card reveal-item" data-delay="100">
                     <h3 class="category-title">ML & AI Frameworks</h3>
                     <div class="skill-tags">
                         <span class="skill-tag highlight">TensorFlow</span>
@@ -112,7 +155,8 @@
                         <span class="skill-tag">Pandas</span>
                     </div>
                 </div>
-                <div class="skill-category glass-card reveal-item">
+
+                <div class="skill-category glass-card reveal-item" data-delay="200">
                     <h3 class="category-title">Core Specializations</h3>
                     <div class="skill-tags">
                         <span class="skill-tag accent">Deep Learning</span>
@@ -121,7 +165,8 @@
                         <span class="skill-tag accent">Machine Learning</span>
                     </div>
                 </div>
-                <div class="skill-category glass-card reveal-item">
+
+                <div class="skill-category glass-card reveal-item" data-delay="300">
                     <h3 class="category-title">Tools & DevOps</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Git</span>
@@ -134,6 +179,8 @@
             </div>
         </section>
 
+        <!-- CONTACT SECTION -->
+        <!-- Bento-grid layout with pulsing status indicator -->
         <section id="contact" class="reveal-section" data-delay="400">
             <div class="contact-header">
                 <h2 class="section-title">Let's Connect</h2>
@@ -141,49 +188,54 @@
             </div>
             
             <div class="contact-grid">
-                <div class="contact-card glass-card reveal-item">
-                    <div class="card-icon">✉️</div>
+                <div class="contact-card glass-card reveal-item" data-delay="0">
+                    <div class="card-icon" aria-hidden="true">✉️</div>
                     <h3>Email Me</h3>
                     <a href="mailto:marganaavinash@gmail.com" class="contact-link">marganaavinash@gmail.com</a>
                     <span class="sub-text">Usually responds within 24 hours</span>
                 </div>
 
-                <div class="contact-card glass-card reveal-item">
-                    <div class="card-icon">📞</div>
+                <div class="contact-card glass-card reveal-item" data-delay="50">
+                    <div class="card-icon" aria-hidden="true">📞</div>
                     <h3>Call / WhatsApp</h3>
                     <a href="tel:+919392989981" class="contact-link">+91 9392989981</a>
                     <span class="sub-text">Available Mon-Fri, 10AM - 6PM IST</span>
                 </div>
 
-                <div class="contact-card glass-card reveal-item">
-                    <div class="card-icon">💼</div>
+                <div class="contact-card glass-card reveal-item" data-delay="100">
+                    <div class="card-icon" aria-hidden="true">💼</div>
                     <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" class="contact-link">Connect Professionally</a>
+                    <a href="https://www.linkedin.com/in/vasu-margana-49265031b/" target="_blank" rel="noopener noreferrer" class="contact-link">Connect Professionally</a>
                 </div>
 
-                <div class="contact-card glass-card reveal-item">
-                    <div class="card-icon"></div>
+                <div class="contact-card glass-card reveal-item" data-delay="150">
+                    <div class="card-icon" aria-hidden="true">💻</div>
                     <h3>GitHub</h3>
-                    <a href="https://github.com/VasuML07" target="_blank" class="contact-link">View My Code</a>
+                    <a href="https://github.com/VasuML07" target="_blank" rel="noopener noreferrer" class="contact-link">View My Code</a>
                 </div>
 
-                <div class="contact-card glass-card reveal-item">
-                    <div class="card-icon">⚡</div>
+                <div class="contact-card glass-card reveal-item" data-delay="200">
+                    <div class="card-icon" aria-hidden="true"></div>
                     <h3>LeetCode</h3>
-                    <a href="https://leetcode.com/u/coder_2028/" target="_blank" class="contact-link">Algorithmic Profile</a>
+                    <a href="https://leetcode.com/u/coder_2028/" target="_blank" rel="noopener noreferrer" class="contact-link">Algorithmic Profile</a>
                 </div>
 
-                <div class="contact-card glass-card reveal-item">
-                    <div class="card-icon"></div>
+                <div class="contact-card glass-card reveal-item" data-delay="250">
+                    <div class="card-icon" aria-hidden="true"></div>
                     <h3>Location</h3>
                     <p class="contact-text">Vijayawada, India</p>
-                    <span class="status-badge"><span class="pulse"></span> Open to Remote</span>
+                    <!-- Pulsing green dot indicates active/open status -->
+                    <span class="status-badge">
+                        <span class="pulse" aria-hidden="true"></span> Open to Remote
+                    </span>
                 </div>
 
-                <div class="contact-card glass-card cta reveal-item">
-                    <div class="card-icon">📄</div>
+                <div class="contact-card glass-card cta reveal-item" data-delay="300">
+                    <div class="card-icon" aria-hidden="true">📄</div>
                     <h3>Download Resume</h3>
-                    <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" class="btn btn-full">Get PDF Version</a>
+                    <a href="https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view" target="_blank" rel="noopener noreferrer" class="btn btn-full">
+                        <span class="btn-shine"></span>Get PDF Version
+                    </a>
                 </div>
             </div>
         </section>
@@ -193,33 +245,64 @@
         <p>&copy; 2026 Avinash Margana. Built with HTML & CSS.</p>
     </footer>
 
+    <!-- INTERSECTION OBSERVER FOR SCROLL ANIMATIONS -->
+    <!-- Vanilla JS observer triggers .visible class when elements enter viewport -->
     <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll-triggered reveal animation
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px', // Trigger 50px before element is fully visible
+                threshold: 0.1
+            };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Apply delay from data-delay attribute for staggered effect
+                        const delay = entry.target.getAttribute('data-delay') || '0';
+                        entry.target.style.transitionDelay = `${delay}ms`;
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all reveal targets
+            document.querySelectorAll('.reveal-section, .reveal-item').forEach(el => {
+                observer.observe(el);
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.reveal-section, .reveal-item').forEach(el => {
-            observer.observe(el);
-        });
+            // Scroll progress bar update
+            const progressBar = document.querySelector('.scroll-progress');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + '%';
+                progressBar.setAttribute('aria-valuenow', Math.round(scrolled));
+            }, { passive: true });
 
-        // Scroll progress indicator
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+            // Active nav link highlighting based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-section') === current) {
+                        link.classList.add('active');
+                    }
+                });
+            }, { passive: true });
         });
     </script>
 </body>
