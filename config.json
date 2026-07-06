@@ -1,1 +1,26 @@
 
+{
+  "portfolio": {
+    "name": "Avinash Margana",
+    "title": "AI Engineer",
+    "tagline": "Building scalable web applications with integration of AI",
+    "email": "marganaavinash@gmail.com",
+    "phone": "+91 9392989981",
+    "location": "Vijayawada, India",
+    "availability": "Open to Opportunities"
+  },
+  "social_links": {
+    "linkedin": "https://www.linkedin.com/in/vasu-margana-49265031b/",
+    "github": "https://github.com/VasuML07",
+    "leetcode": "https://leetcode.com/u/coder_2028/"
+  },
+  "resume": {
+    "drive_link": "https://drive.google.com/file/d/16uqZbbHqb0sArBTcMreqU_bjztg2Zyhq/view",
+    "last_updated": "2026-07-07"
+  },
+  "seo": {
+    "title": "Avinash Margana | AI Engineer Portfolio",
+    "description": "Portfolio of Avinash Margana, an AI Engineer specializing in Machine Learning, NLP, and Deep Learning.",
+    "keywords": ["AI Engineer", "Machine Learning", "Python", "NLP", "Deep Learning", "VIT-AP University"]
+  }
+}
